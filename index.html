@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EducaNIC - Aprende, Crece y Transforma tu Futuro</title>
+  <title>EducaNIC - Aprende y Crece con Nosotros</title>
   <style>
     /* Reset */
     *, *::before, *::after {
@@ -12,64 +12,61 @@
     }
 
     body {
-      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #f0f4f8;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      color: #0b3d91; /* Azul sólido principal */
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 60px 20px 40px;
-      scroll-behavior: smooth;
     }
 
     header {
       max-width: 900px;
       text-align: center;
-      margin-bottom: 70px;
-      animation: fadeInDown 1s ease forwards;
+      margin-bottom: 60px;
     }
 
     header h1 {
-      font-size: 3.8rem;
+      font-size: 3.6rem;
       font-weight: 900;
-      letter-spacing: 4px;
-      color: #00d2ff;
-      text-shadow:
-        0 0 5px #00d2ff,
-        0 0 15px #00d2ff,
-        0 0 20px #00d2ff,
-        0 0 40px #0ff;
-      margin-bottom: 12px;
-      line-height: 1.1;
+      letter-spacing: 3px;
+      margin-bottom: 14px;
+      color: #0b3d91;
+      border-bottom: 4px solid #0b3d91;
+      display: inline-block;
+      padding-bottom: 6px;
     }
 
     header h2 {
       font-size: 2rem;
       font-weight: 600;
-      color: #89c9ff;
       margin-bottom: 24px;
-      letter-spacing: 1.5px;
-      font-style: italic;
+      color: #0b3d91;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     header p {
       font-size: 1.15rem;
       line-height: 1.7;
-      max-width: 720px;
+      max-width: 700px;
       margin: 0 auto;
-      background: rgba(255 255 255 / 0.07);
-      padding: 25px 35px;
-      border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(0, 210, 255, 0.15);
+      padding: 20px 30px;
+      border: 2px solid #0b3d91;
+      border-radius: 12px;
+      background-color: #f0f5ff;
+      color: #0b3d91;
       user-select: text;
       cursor: text;
-      transition: background-color 0.35s ease;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
     }
 
     header p:hover,
     header p:focus {
-      background: rgba(255 255 255 / 0.12);
+      background-color: #e1e9ff;
+      border-color: #084a8a;
       outline: none;
     }
 
@@ -78,33 +75,27 @@
       width: 100%;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 36px;
-      animation: fadeInUp 1.5s ease forwards;
+      gap: 32px;
     }
 
     .curso-card {
-      background: rgba(255 255 255 / 0.06);
-      border-radius: 20px;
-      padding: 25px 20px 30px;
+      background-color: #f7faff;
+      border: 2px solid #0b3d91;
+      border-radius: 16px;
+      padding: 24px 20px 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow:
-        0 12px 30px rgba(0, 210, 255, 0.12),
-        inset 0 0 10px rgba(255 255 255 / 0.1);
-      transition:
-        transform 0.3s cubic-bezier(0.4,0,0.2,1),
-        box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+      box-shadow: 0 4px 10px rgba(11, 61, 145, 0.15);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
       cursor: default;
-      will-change: transform;
     }
 
     .curso-card:hover,
     .curso-card:focus-within {
-      transform: translateY(-14px);
-      box-shadow:
-        0 18px 50px rgba(0, 210, 255, 0.28),
-        inset 0 0 14px rgba(255 255 255 / 0.16);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(11, 61, 145, 0.3);
+      border-color: #084a8a;
     }
 
     .curso-card img {
@@ -112,45 +103,33 @@
       max-width: 240px;
       height: 150px;
       object-fit: cover;
-      border-radius: 16px;
-      margin-bottom: 22px;
-      box-shadow:
-        0 8px 18px rgba(0, 210, 255, 0.18);
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-      transition: filter 0.3s ease;
-    }
-
-    .curso-card:hover img {
-      filter: drop-shadow(0 6px 10px rgba(0, 210, 255, 0.5));
+      border-radius: 14px;
+      margin-bottom: 20px;
+      border: 1.5px solid #0b3d91;
     }
 
     .curso-card h3 {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #c3eaff;
-      margin-bottom: 20px;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #0b3d91;
+      margin-bottom: 22px;
       text-align: center;
-      text-shadow:
-        0 0 6px rgba(0, 210, 255, 0.8);
-      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
     }
 
     .btn-adquirir {
-      background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
-      color: white;
+      background-color: #0b3d91;
+      color: #ffffff;
       font-weight: 700;
       border: none;
       padding: 14px 28px;
-      border-radius: 40px;
-      font-size: 1.05rem;
+      border-radius: 35px;
+      font-size: 1rem;
       cursor: pointer;
       text-transform: uppercase;
-      box-shadow:
-        0 8px 25px rgba(0, 210, 255, 0.5);
-      transition:
-        background 0.35s ease,
-        box-shadow 0.35s ease,
-        transform 0.25s ease;
+      box-shadow: 0 6px 15px rgba(11, 61, 145, 0.4);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
       width: 100%;
       max-width: 240px;
       user-select: none;
@@ -158,16 +137,15 @@
 
     .btn-adquirir:hover,
     .btn-adquirir:focus-visible {
-      background: linear-gradient(90deg, #3a7bd5 0%, #00d2ff 100%);
-      box-shadow:
-        0 14px 35px rgba(0, 210, 255, 0.8);
-      transform: scale(1.06);
+      background-color: #084a8a;
+      box-shadow: 0 10px 30px rgba(8, 74, 138, 0.7);
+      transform: scale(1.05);
       outline: none;
     }
 
     .btn-adquirir:focus-visible {
-      outline: 3px solid #00d2ff;
-      outline-offset: 4px;
+      outline: 3px solid #084a8a;
+      outline-offset: 3px;
     }
 
     @media (max-width: 480px) {
@@ -175,7 +153,7 @@
         font-size: 2.8rem;
       }
       header h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
       }
       main {
         grid-template-columns: 1fr;
@@ -188,28 +166,6 @@
         max-width: 100%;
       }
     }
-
-    /* Animations */
-    @keyframes fadeInDown {
-      0% {
-        opacity: 0;
-        transform: translateY(-40px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
   </style>
 </head>
 <body>
@@ -217,7 +173,7 @@
     <h1>EducaNIC</h1>
     <h2>¿Quiénes somos?</h2>
     <p contenteditable="true" aria-label="Texto editable para describir quiénes somos" tabindex="0">
-      Somos EducaNIC, una plataforma comprometida con tu desarrollo integral a través de cursos de alta calidad, prácticos y accesibles. Nuestro objetivo es potenciar tu aprendizaje en áreas clave para tu crecimiento personal y profesional, brindándote un espacio moderno, amigable y profesional donde puedas alcanzar tus metas. ¡Explora nuestros cursos y comienza hoy tu camino hacia el éxito!
+      Somos EducaNIC, una plataforma dedicada a ofrecer cursos de calidad para impulsar tu desarrollo personal y profesional. Aquí encontrarás formación práctica, clara y accesible en diversas áreas, diseñada para que aprendas y crezcas con seguridad y confianza. ¡Explora nuestros cursos y comienza hoy tu aprendizaje!
     </p>
   </header>
   <main>
