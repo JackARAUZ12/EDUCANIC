@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EducaNIC - Aprende y Crece con Nosotros</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     /* Reset */
     *, *::before, *::after {
@@ -12,60 +13,84 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #ffffff;
-      color: #0b3d91; /* Azul sólido principal */
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      color: #0b3d91;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 60px 20px 40px;
+      padding: 70px 20px 50px;
+      background-image:
+        radial-gradient(circle at 30% 30%, rgba(11, 61, 145, 0.05) 0%, transparent 70%),
+        radial-gradient(circle at 70% 80%, rgba(11, 61, 145, 0.07) 0%, transparent 60%);
     }
 
     header {
       max-width: 900px;
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 70px;
+      position: relative;
+      overflow: visible;
     }
 
     header h1 {
-      font-size: 3.6rem;
-      font-weight: 900;
-      letter-spacing: 3px;
-      margin-bottom: 14px;
+      font-weight: 800;
+      font-size: 4rem;
+      letter-spacing: 5px;
       color: #0b3d91;
-      border-bottom: 4px solid #0b3d91;
+      position: relative;
       display: inline-block;
-      padding-bottom: 6px;
+      padding-bottom: 10px;
+      border-bottom: 5px solid #0b3d91;
+      animation: slideDownFadeIn 1s ease forwards;
+    }
+
+    header h1::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 6px;
+      background: #084a8a;
+      bottom: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 3px;
+      filter: drop-shadow(0 0 5px #084a8a);
+      animation: pulseGlow 2.5s infinite ease-in-out;
     }
 
     header h2 {
-      font-size: 2rem;
       font-weight: 600;
-      margin-bottom: 24px;
-      color: #0b3d91;
+      font-size: 2rem;
+      color: #084a8a;
+      margin: 25px 0 35px;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
+      animation: fadeInUp 1.2s ease forwards;
     }
 
     header p {
-      font-size: 1.15rem;
-      line-height: 1.7;
-      max-width: 700px;
+      font-weight: 400;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      max-width: 720px;
       margin: 0 auto;
-      padding: 20px 30px;
-      border: 2px solid #0b3d91;
-      border-radius: 12px;
       background-color: #f0f5ff;
+      border: 2px solid #0b3d91;
+      border-radius: 14px;
+      padding: 30px 40px;
       color: #0b3d91;
       user-select: text;
       cursor: text;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
+      box-shadow: 0 8px 20px rgba(11, 61, 145, 0.15);
+      transition: background-color 0.35s ease, border-color 0.35s ease;
+      animation: fadeIn 1.5s ease forwards;
     }
 
     header p:hover,
     header p:focus {
-      background-color: #e1e9ff;
+      background-color: #dbe7ff;
       border-color: #084a8a;
       outline: none;
     }
@@ -74,78 +99,175 @@
       max-width: 1200px;
       width: 100%;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 36px;
+      animation: fadeInUp 1.7s ease forwards;
+      padding-bottom: 40px;
+      position: relative;
+      z-index: 1;
     }
 
     .curso-card {
-      background-color: #f7faff;
+      background-color: #f9fbff;
       border: 2px solid #0b3d91;
-      border-radius: 16px;
-      padding: 24px 20px 30px;
+      border-radius: 20px;
+      padding: 28px 22px 36px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: 0 4px 10px rgba(11, 61, 145, 0.15);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow:
+        0 4px 10px rgba(11, 61, 145, 0.15),
+        inset 0 0 20px rgba(255 255 255, 0.6);
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1);
       cursor: default;
+      will-change: transform;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .curso-card::before {
+      content: "";
+      position: absolute;
+      top: -30%;
+      left: -30%;
+      width: 160%;
+      height: 160%;
+      background: radial-gradient(circle at center, rgba(11,61,145,0.12), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: 0;
+      border-radius: 20px;
+    }
+
+    .curso-card:hover::before,
+    .curso-card:focus-within::before {
+      opacity: 1;
     }
 
     .curso-card:hover,
     .curso-card:focus-within {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 25px rgba(11, 61, 145, 0.3);
+      transform: translateY(-12px);
+      box-shadow:
+        0 16px 40px rgba(11, 61, 145, 0.35),
+        inset 0 0 30px rgba(11, 61, 145, 0.15);
       border-color: #084a8a;
+      outline: none;
+      z-index: 2;
     }
 
     .curso-card img {
       width: 100%;
-      max-width: 240px;
-      height: 150px;
+      max-width: 260px;
+      height: 160px;
       object-fit: cover;
-      border-radius: 14px;
-      margin-bottom: 20px;
-      border: 1.5px solid #0b3d91;
+      border-radius: 16px;
+      margin-bottom: 25px;
+      border: 2.5px solid #0b3d91;
+      box-shadow: 0 8px 20px rgba(11, 61, 145, 0.2);
+      transition: box-shadow 0.35s ease;
+      position: relative;
+      z-index: 3;
+    }
+
+    .curso-card:hover img {
+      box-shadow: 0 14px 30px rgba(8, 74, 138, 0.5);
     }
 
     .curso-card h3 {
-      font-size: 1.45rem;
+      font-size: 1.6rem;
       font-weight: 700;
       color: #0b3d91;
-      margin-bottom: 22px;
+      margin-bottom: 28px;
       text-align: center;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.3px;
+      position: relative;
+      z-index: 3;
+      user-select: none;
     }
 
     .btn-adquirir {
       background-color: #0b3d91;
-      color: #ffffff;
+      color: #fff;
       font-weight: 700;
       border: none;
-      padding: 14px 28px;
-      border-radius: 35px;
-      font-size: 1rem;
+      padding: 16px 32px;
+      border-radius: 45px;
+      font-size: 1.1rem;
       cursor: pointer;
       text-transform: uppercase;
-      box-shadow: 0 6px 15px rgba(11, 61, 145, 0.4);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 8px 25px rgba(11, 61, 145, 0.5);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
       width: 100%;
-      max-width: 240px;
+      max-width: 260px;
       user-select: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+      z-index: 3;
+    }
+
+    .btn-adquirir svg {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-adquirir:hover svg {
+      transform: translateX(6px);
     }
 
     .btn-adquirir:hover,
     .btn-adquirir:focus-visible {
       background-color: #084a8a;
-      box-shadow: 0 10px 30px rgba(8, 74, 138, 0.7);
-      transform: scale(1.05);
+      box-shadow: 0 14px 38px rgba(8, 74, 138, 0.8);
+      transform: scale(1.07);
       outline: none;
     }
 
     .btn-adquirir:focus-visible {
       outline: 3px solid #084a8a;
       outline-offset: 3px;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeIn {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+    @keyframes slideDownFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes pulseGlow {
+      0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.1);
+      }
     }
 
     @media (max-width: 480px) {
@@ -180,44 +302,80 @@
     <section class="curso-card" tabindex="0" aria-label="Curso de Inglés">
       <img src="ingles.jpg" alt="Imagen representativa del curso de Inglés" />
       <h3>Curso de Inglés</h3>
-      <button class="btn-adquirir" onclick="location.href='ingles.html'" aria-label="Adquirir curso de Inglés">Adquiere el Curso ya</button>
+      <button class="btn-adquirir" onclick="location.href='ingles.html'" aria-label="Adquirir curso de Inglés">
+        Adquiere el Curso ya
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M8 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </section>
 
     <section class="curso-card" tabindex="0" aria-label="Curso de Computación">
       <img src="computacion.jpg" alt="Imagen representativa del curso de Computación" />
       <h3>Curso de Computación</h3>
-      <button class="btn-adquirir" onclick="location.href='computacion.html'" aria-label="Adquirir curso de Computación">Adquiere el Curso ya</button>
+      <button class="btn-adquirir" onclick="location.href='computacion.html'" aria-label="Adquirir curso de Computación">
+        Adquiere el Curso ya
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M8 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </section>
 
     <section class="curso-card" tabindex="0" aria-label="Curso de Diseño Gráfico">
       <img src="diseno-grafico.jpg" alt="Imagen representativa del curso de Diseño Gráfico" />
       <h3>Curso de Diseño Gráfico</h3>
-      <button class="btn-adquirir" onclick="location.href='diseno-grafico.html'" aria-label="Adquirir curso de Diseño Gráfico">Adquiere el Curso ya</button>
+      <button class="btn-adquirir" onclick="location.href='diseno-grafico.html'" aria-label="Adquirir curso de Diseño Gráfico">
+        Adquiere el Curso ya
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M8 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </section>
 
     <section class="curso-card" tabindex="0" aria-label="Curso de Edición de Videos">
       <img src="edicion-videos.jpg" alt="Imagen representativa del curso de Edición de Videos" />
       <h3>Curso de Edición de Videos</h3>
-      <button class="btn-adquirir" onclick="location.href='edicion-videos.html'" aria-label="Adquirir curso de Edición de Videos">Adquiere el Curso ya</button>
+      <button class="btn-adquirir" onclick="location.href='edicion-videos.html'" aria-label="Adquirir curso de Edición de Videos">
+        Adquiere el Curso ya
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M8 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </section>
 
     <section class="curso-card" tabindex="0" aria-label="Curso de Cocina">
       <img src="cocina.jpg" alt="Imagen representativa del curso de Cocina" />
       <h3>Curso de Cocina</h3>
-      <button class="btn-adquirir" onclick="location.href='cocina.html'" aria-label="Adquirir curso de Cocina">Adquiere el Curso ya</button>
+      <button class="btn-adquirir" onclick="location.href='cocina.html'" aria-label="Adquirir curso de Cocina">
+        Adquiere el Curso ya
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M8 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </section>
 
     <section class="curso-card" tabindex="0" aria-label="Curso de Baile">
       <img src="baile.jpg" alt="Imagen representativa del curso de Baile" />
       <h3>Curso de Baile</h3>
-      <button class="btn-adquirir" onclick="location.href='baile.html'" aria-label="Adquirir curso de Baile">Adquiere el Curso ya</button>
+      <button class="btn-adquirir" onclick="location.href='baile.html'" aria-label="Adquirir curso de Baile">
+        Adquiere el Curso ya
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M8 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </section>
 
     <section class="curso-card" tabindex="0" aria-label="Curso de Canto">
       <img src="canto.jpg" alt="Imagen representativa del curso de Canto" />
       <h3>Curso de Canto</h3>
-      <button class="btn-adquirir" onclick="location.href='canto.html'" aria-label="Adquirir curso de Canto">Adquiere el Curso ya</button>
+      <button class="btn-adquirir" onclick="location.href='canto.html'" aria-label="Adquirir curso de Canto">
+        Adquiere el Curso ya
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M8 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </section>
   </main>
 </body>
 </html>
+
