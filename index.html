@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EducaNIC - Inicio</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #4a90e2 0%, #50e3c2 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    header {
+      max-width: 900px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.25);
+    }
+
+    header h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    header p {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(255 255 255 / 0.15);
+      padding: 20px;
+      border-radius: 10px;
+      user-select: text;
+      cursor: text;
+      transition: background 0.3s ease;
+    }
+
+    header p:hover {
+      background: rgba(255 255 255 / 0.25);
+    }
+
+    main {
+      max-width: 1100px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .curso-card {
+      background: rgba(255 255 255 / 0.15);
+      border-radius: 15px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .curso-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.35);
+    }
+
+    .curso-card img {
+      width: 100%;
+      max-width: 220px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .curso-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-align: center;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .btn-adquirir {
+      background: #ff6f61;
+      color: white;
+      font-weight: 700;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 50px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 6px 15px rgba(255,111,97,0.5);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      width: 100%;
+      max-width: 220px;
+      user-select: none;
+    }
+
+    .btn-adquirir:hover {
+      background: #ff4b3f;
+      box-shadow: 0 8px 20px rgba(255,75,63,0.7);
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      header h2 {
+        font-size: 1.3rem;
+      }
+      .curso-card img {
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EducaNIC</h1>
+    <h2>¿Quiénes somos?</h2>
+    <p contenteditable="true" aria-label="Texto editable para describir quiénes somos">
+      Somos EducaNIC, una plataforma dedicada a brindar cursos accesibles, prácticos y de alta calidad para impulsar tu aprendizaje en diversas áreas. Nuestra misión es ayudarte a crecer personal y profesionalmente, ofreciéndote herramientas y conocimientos esenciales en un ambiente amigable y profesional. ¡Descubre nuestros cursos y da el primer paso hacia tu futuro hoy mismo!
+    </p>
+  </header>
+  <main>
+    <section class="curso-card">
+      <img src="ingles.jpg" alt="Curso de inglés" />
+      <h3>Curso de Inglés</h3>
+      <button class="btn-adquirir" onclick="location.href='ingles.html'">Adquiere el Curso ya</button>
+    </section>
+
+    <section class="curso-card">
+      <img src="computacion.jpg" alt="Curso de Computación" />
+      <h3>Curso de Computación</h3>
+      <button class="btn-adquirir" onclick="location.href='computacion.html'">Adquiere el Curso ya</button>
+    </section>
+
+    <section class="curso-card">
+      <img src="diseno-grafico.jpg" alt="Curso de Diseño Gráfico" />
+      <h3>Curso de Diseño Gráfico</h3>
+      <button class="btn-adquirir" onclick="location.href='diseno-grafico.html'">Adquiere el Curso ya</button>
+    </section>
+
+    <section class="curso-card">
+      <img src="edicion-videos.jpg" alt="Curso de Edición de Videos" />
+      <h3>Curso de Edición de Videos</h3>
+      <button class="btn-adquirir" onclick="location.href='edicion-videos.html'">Adquiere el Curso ya</button>
+    </section>
+
+    <section class="curso-card">
+      <img src="cocina.jpg" alt="Curso de Cocina" />
+      <h3>Curso de Cocina</h3>
+      <button class="btn-adquirir" onclick="location.href='cocina.html'">Adquiere el Curso ya</button>
+    </section>
+
+    <section class="curso-card">
+      <img src="baile.jpg" alt="Curso de Baile" />
+      <h3>Curso de Baile</h3>
+      <button class="btn-adquirir" onclick="location.href='baile.html'">Adquiere el Curso ya</button>
+    </section>
+
+    <section class="curso-card">
+      <img src="canto.jpg" alt="Curso de Canto" />
+      <h3>Curso de Canto</h3>
+      <button class="btn-adquirir" onclick="location.href='canto.html'">Adquiere el Curso ya</button>
+    </section>
+  </main>
+</body>
+</html>
