@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fundamentos del Inglés - EducaNIC</title>
+<style>
+  /* Reset y base */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  body {
+    background: #fff;
+    color: #ff6600;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  /* Header */
+  header {
+    background: #ff6600;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+  }
+  header a {
+    background: #cc4d00;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 700;
+    user-select: none;
+    transition: background-color 0.3s;
+  }
+  header a:hover {
+    background: #ff8533;
+  }
+
+  main {
+    flex: 1;
+    padding: 30px 15px 120px; /* bottom for footer */
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(255,102,0,0.4);
+  }
+
+  /* Tema container */
+  .tema {
+    background: #fff7f0;
+    border: 3px solid #ff6600;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    padding: 25px 30px;
+    box-shadow: 0 8px 20px rgba(255,102,0,0.15);
+    transition: box-shadow 0.3s ease;
+  }
+  .tema.unlocked:hover {
+    box-shadow: 0 12px 32px rgba(255,102,0,0.35);
+  }
+  .tema.locked {
+    opacity: 0.45;
+    pointer-events: none;
+    user-select: none;
+  }
+  .tema h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+  }
+
+  /* Ejercicios */
+  .ejercicio {
+    margin-bottom: 25px;
+  }
+  label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+  }
+  input[type=text] {
+    width: 100%;
+    max-width: 360px;
+    padding: 8px 12px;
+    border: 2px solid #ff6600;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #ff6600;
+    outline-offset: 2px;
+    outline-color: #ff8533;
+  }
+  input[type=text]:focus {
+    outline-color: #ff8533;
+    box-shadow: 0 0 6px #ff8533;
+  }
+  button.check-btn {
+    background: #ff6600;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+  }
+  button.check-btn:hover {
+    background: #ff8533;
+  }
+
+  /* Mensaje */
+  .mensaje {
+    margin-top: 10px;
+    font-weight: 700;
+  }
+  .mensaje.error {
+    color: #cc2200;
+  }
+  .mensaje.success {
+    color: #008833;
+  }
+
+  /* Animación desbloqueo */
+  @keyframes desbloqueo {
+    0% {
+      transform: scale(0.85);
+      opacity: 0.3;
+      border-color: #cc4d00;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+      border-color: #ff8533;
+      box-shadow: 0 0 20px #ff8533;
+    }
+    100% {
+      transform: scale(1);
+      border-color: #ff6600;
+      box-shadow: 0 8px 20px rgba(255,102,0,0.15);
+    }
+  }
+
+  /* Footer */
+  footer {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: #ff6600;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    user-select: none;
+  }
+  footer a {
+    color: #fff;
+    font-weight: 700;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    main {
+      padding: 20px 12px 120px;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .tema h2 {
+      font-size: 1.6rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header role="banner">
+  <a href="index.html" aria-label="Volver a la página de inicio">Inicio</a>
+</header>
+
+<main role="main" aria-live="polite">
+  <h1 tabindex="0">Fundamentos del Inglés</h1>
+
+  <!-- Tema 1 -->
+  <section class="tema unlocked" data-tema="1" aria-label="Tema 1: El abecedario">
+    <h2>1. El abecedario</h2>
+    <div class="ejercicio" id="ej1">
+      <label for="inputAbecedario">Escribe las primeras 5 letras del abecedario separadas por espacios (ejemplo: a b c d e)</label>
+      <input type="text" id="inputAbecedario" aria-describedby="ayudaAbecedario" autocomplete="off" />
+      <button class="check-btn" aria-controls="inputAbecedario" onclick="checkEjercicio1()">Verificar</button>
+      <div class="mensaje" id="msgEj1" role="alert" aria-live="assertive"></div>
+    </div>
+  </section>
+
+  <!-- Tema 2 -->
+  <section class="tema locked" data-tema="2" aria-label="Tema 2: Saludos y despedidas" tabindex="-1" aria-disabled="true" aria-hidden="true">
+    <h2>2. Saludos y despedidas</h2>
+    <div class="ejercicio" id="ej2">
+      <label for="inputSaludo">Completa la frase: "Hello, how ____ you?"</label>
+      <input type="text" id="inputSaludo" autocomplete="off" />
+      <button class="check-btn" onclick="checkEjercicio2()">Verificar</button>
+      <div class="mensaje" id="msgEj2" role="alert" aria-live="assertive"></div>
+    </div>
+  </section>
+
+  <!-- Tema 3 -->
+  <section class="tema locked" data-tema="3" aria-label="Tema 3: Presentarte y conocer a otros" tabindex="-1" aria-disabled="true" aria-hidden="true">
+    <h2>3. Presentarte y conocer a otros</h2>
+    <div class="ejercicio" id="ej3">
+      <label for="inputPresentacion">Completa la frase: "My name ____ John."</label>
+      <input type="text" id="inputPresentacion" autocomplete="off" />
+      <button class="check-btn" onclick="checkEjercicio3()">Verificar</button>
+      <div class="mensaje" id="msgEj3" role="alert" aria-live="assertive"></div>
+    </div>
+  </section>
+
+  <!-- Tema 4 -->
+  <section class="tema locked" data-tema="4" aria-label="Tema 4: Pronombres personales" tabindex="-1" aria-disabled="true" aria-hidden="true">
+    <h2>4. Pronombres personales</h2>
+    <div class="ejercicio" id="ej4">
+      <label for="inputPronombre">Selecciona el pronombre adecuado para "Sara and I":</label>
+      <select id="inputPronombre" aria-label="Seleccionar pronombre">
+        <option value="">--Seleccione--</option>
+        <option value="we">We</option>
+        <option value="they">They</option>
+        <option value="you">You</option>
+      </select>
+      <button class="check-btn" onclick="checkEjercicio4()">Verificar</button>
+      <div class="mensaje" id="msgEj4" role="alert" aria-live="assertive"></div>
+    </div>
+  </section>
+
+  <!-- Tema 5 -->
+  <section class="tema locked" data-tema="5" aria-label="Tema 5: Pronunciación de vocales y consonantes" tabindex="-1" aria-disabled="true" aria-hidden="true">
+    <h2>5. Pronunciación de vocales y consonantes</h2>
+    <div class="ejercicio" id="ej5">
+      <label for="inputVocales">Escribe las vocales en orden (a, e, i, o, u) separadas por comas:</label>
+      <input type="text" id="inputVocales" autocomplete="off" />
+      <button class="check-btn" onclick="checkEjercicio5()">Verificar</button>
+      <div class="mensaje" id="msgEj5" role="alert" aria-live="assertive"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo" aria-label="Información de contacto y derechos reservados">
+  📞 <a href="https://wa.me/50581294177" target="_blank" rel="noopener" aria-label="Enviar mensaje WhatsApp">8129-4177</a> | 
+  📧 <a href="mailto:jackarauz2008@gmail.com" aria-label="Enviar correo electrónico">jackarauz2008@gmail.com</a><br />
+  EDUCANIC - 2025 © Todos los derechos reservados
+</footer>
+
+<script>
+  // Funciones para validar ejercicios
+  function checkEjercicio1() {
+    const input = document.getElementById('inputAbecedario').value.trim().toLowerCase();
+    const msg = document.getElementById('msgEj1');
+    if (input === 'a b c d e') {
+      msg.textContent = '¡Correcto! Tema 1 completado.';
+      msg.className = 'mensaje success';
+      desbloquearTema(2);
+    } else {
+      msg.textContent = 'Incorrecto, intenta de nuevo.';
+      msg.className = 'mensaje error';
+    }
+  }
+  function checkEjercicio2() {
+    const input = document.getElementById('inputSaludo').value.trim().toLowerCase();
+    const msg = document.getElementById('msgEj2');
+    if (input === 'are') {
+      msg.textContent = '¡Correcto! Tema 2 completado.';
+      msg.className = 'mensaje success';
+      desbloquearTema(3);
+    } else {
+      msg.textContent = 'Incorrecto, intenta de nuevo.';
+      msg.className = 'mensaje error';
+    }
+  }
+  function checkEjercicio3() {
+    const input = document.getElementById('inputPresentacion').value.trim().toLowerCase();
+    const msg = document.getElementById('msgEj3');
+    if (input === 'is') {
+      msg.textContent = '¡Correcto! Tema 3 completado.';
+      msg.className = 'mensaje success';
+      desbloquearTema(4);
+    } else {
+      msg.textContent = 'Incorrecto, intenta de nuevo.';
+      msg.className = 'mensaje error';
+    }
+  }
+  function checkEjercicio4() {
+    const input = document.getElementById('inputPronombre').value;
+    const msg = document.getElementById('msgEj4');
+    if (input === 'we') {
+      msg.textContent = '¡Correcto! Tema 4 completado.';
+      msg.className = 'mensaje success';
+      desbloquearTema(5);
+    } else {
+      msg.textContent = 'Incorrecto, intenta de nuevo.';
+      msg.className = 'mensaje error';
+    }
+  }
+  function checkEjercicio5() {
+    const input = document.getElementById('inputVocales').value.trim().toLowerCase().replace(/\s+/g,'');
+    const msg = document.getElementById('msgEj5');
+    if (input === 'aeiou') {
+      msg.textContent = '¡Correcto! Tema 5 completado.';
+      msg.className = 'mensaje success';
+      // Aquí ya no desbloquea más porque es el último tema
+    } else {
+      msg.textContent = 'Incorrecto, intenta de nuevo.';
+      msg.className = 'mensaje error';
+    }
+  }
+
+  // Función para desbloquear el siguiente tema
+  function desbloquearTema(nroTema) {
+    const tema = document.querySelector(`.tema[data-tema="${nroTema}"]`);
+    if (!tema) return;
+    if (tema.classList.contains('unlocked')) return; // ya desbloqueado
+
+    tema.classList.remove('locked');
+    tema.classList.add('unlocked');
+    tema.style.animation = 'desbloqueo 0.6s ease forwards';
+
+    // Remover atributos aria de bloqueo
+    tema.removeAttribute('aria-disabled');
+    tema.removeAttribute('aria-hidden');
+    tema.setAttribute('tabindex', '0');
+  }
+</script>
+
+</body>
+</html>
