@@ -52,6 +52,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
 
         .acceso-container {
@@ -71,13 +72,27 @@
             color: #003366;
         }
 
-        input[type="password"] {
+        .password-box {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        input[type="password"], input[type="text"] {
             padding: 10px;
             width: 100%;
             font-size: 1em;
             margin-bottom: 15px;
             border: 2px solid #003366;
             border-radius: 5px;
+        }
+
+        .eye-icon {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            color: #003366;
         }
 
         button {
@@ -100,6 +115,30 @@
             font-size: 0.9em;
             margin-top: 10px;
             display: none;
+        }
+
+        .compra-box {
+            margin-top: 20px;
+            background-color: #eef5ff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #003366;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #25d366;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1ebd5a;
         }
 
         footer {
@@ -151,9 +190,17 @@
     <main>
         <div class="acceso-container">
             <h2>Introduce el código de acceso</h2>
-            <input type="password" id="codigo" placeholder="Código de acceso">
+            <div class="password-box">
+                <input type="password" id="codigo" placeholder="Código de acceso">
+                <span class="eye-icon" onclick="togglePassword()">👁</span>
+            </div>
             <button onclick="validarCodigo()">Ingresar</button>
             <div class="error" id="error-msg">❌ Código incorrecto</div>
+
+            <div class="compra-box">
+                <p>Compra el curso para conseguir el código de acceso</p>
+                <a class="whatsapp-btn" href="https://wa.me/50581294177?text=Hola,%20quiero%20adquirir%20el%20Curso%20de%20Ingl%C3%A9s" target="_blank">Adquirir</a>
+            </div>
         </div>
     </main>
 
@@ -170,9 +217,18 @@
             const errorMsg = document.getElementById("error-msg");
 
             if (codigoIngresado === codigoCorrecto) {
-                window.location.href = "curso-ingles-contenido.html"; // Aquí va la página real del curso
+                window.location.href = "curso-ingles-contenido.html"; // Página real del curso
             } else {
                 errorMsg.style.display = "block";
+            }
+        }
+
+        function togglePassword() {
+            const input = document.getElementById("codigo");
+            if (input.type === "password") {
+                input.type = "text";
+            } else {
+                input.type = "password";
             }
         }
     </script>
