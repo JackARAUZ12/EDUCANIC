@@ -14,8 +14,8 @@
 
   body {
     font-family: 'Poppins', sans-serif;
-    background: #002f4b; /* celeste oscuro */
-    color: #d4af37; /* dorado */
+    background: #ffffff; /* blanco */
+    color: #ff6600; /* naranja */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -30,20 +30,20 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     height: 60px;
-    background-color: #d4af37; /* dorado */
+    background-color: #ff6600; /* naranja */
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 24px;
     z-index: 9999;
-    box-shadow: 0 3px 10px rgba(212,175,55,0.6);
+    box-shadow: 0 3px 10px rgba(255,102,0,0.6);
     animation: navSlideDown 0.8s ease forwards;
   }
 
   nav button {
     background: transparent;
-    border: 2.5px solid #002f4b; /* celeste */
-    color: #002f4b; /* celeste */
+    border: 2.5px solid #ffffff; /* blanco */
+    color: #ffffff; /* blanco */
     font-weight: 600;
     font-size: 1rem;
     padding: 8px 24px;
@@ -62,7 +62,7 @@
     height: 120%;
     top: -110%;
     left: -110%;
-    background: rgba(0 47 75 / 0.15); /* celeste con transparencia */
+    background: rgba(255,102,0, 0.15); /* naranja con transparencia */
     transform: rotate(45deg);
     transition: all 0.5s ease;
     z-index: 0;
@@ -76,16 +76,16 @@
 
   nav button:hover,
   nav button:focus-visible {
-    background-color: #002f4b; /* celeste */
-    color: #d4af37; /* dorado */
-    box-shadow: 0 0 15px #002f4bcc;
+    background-color: #ffffff; /* blanco */
+    color: #ff6600; /* naranja */
+    box-shadow: 0 0 15px #ffffffcc;
     outline: none;
     z-index: 1;
   }
 
   nav button:focus-visible {
     outline-offset: 3px;
-    outline: 3px solid #002f4bcc;
+    outline: 3px solid #ffffffcc;
   }
 
   nav button:active {
@@ -107,10 +107,10 @@
     font-weight: 800;
     font-size: clamp(2.8rem, 5vw, 4.5rem);
     letter-spacing: 6px;
-    color: #d4af37; /* dorado */
+    color: #ff6600; /* naranja */
     display: inline-block;
     padding-bottom: 10px;
-    border-bottom: 6px solid #d4af37; /* dorado */
+    border-bottom: 6px solid #ff6600; /* naranja */
     animation: fadeInScale 1s ease forwards;
     position: relative;
   }
@@ -120,12 +120,12 @@
     position: absolute;
     width: 70px;
     height: 8px;
-    background: #004e7a; /* celeste más brillante */
+    background: #cc4d00; /* naranja más oscuro */
     bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 4px;
-    filter: drop-shadow(0 0 8px #004e7a);
+    filter: drop-shadow(0 0 8px #cc4d00);
     animation: pulseGlow 3s infinite ease-in-out;
   }
 
@@ -133,7 +133,7 @@
     font-weight: 700;
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     margin: 30px 0 40px;
-    color: #004e7a; /* celeste más brillante */
+    color: #cc4d00; /* naranja más oscuro */
     text-transform: uppercase;
     letter-spacing: 3px;
     animation: fadeInUp 1.4s ease forwards;
@@ -145,278 +145,26 @@
     line-height: 1.8;
     max-width: 720px;
     margin: 0 auto;
-    background-color: #003a5c; /* celeste oscuro */
-    border: 3px solid #d4af37; /* dorado */
+    background-color: #ffe6cc; /* naranja claro */
+    border: 3px solid #ff6600; /* naranja */
     border-radius: 18px;
     padding: 35px 45px;
-    color: #d4af37; /* dorado */
+    color: #ff6600; /* naranja */
     user-select: text;
     cursor: default;
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.18);
+    box-shadow: 0 10px 30px rgba(255, 102, 0, 0.18);
     transition: background-color 0.35s ease, border-color 0.35s ease;
     animation: fadeIn 1.7s ease forwards;
   }
 
   header p:hover,
   header p:focus {
-    background-color: #005d8e; /* celeste más brillante */
-    border-color: #004e7a; /* celeste más brillante */
+    background-color: #ff944d; /* naranja medio */
+    border-color: #cc4d00; /* naranja más oscuro */
     outline: none;
   }
 
-    /* Cursos Grid */
-  .cursos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 44px;
-    animation: fadeInUp 2s ease forwards;
-  }
-
-  .curso-card {
-    background-color: #003a5c; /* celeste oscuro */
-    border: 3px solid #d4af37; /* dorado */
-    border-radius: 24px;
-    padding: 32px 28px 42px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow:
-      0 6px 20px rgba(212, 175, 55, 0.25),
-      inset 0 0 30px rgba(212 175 55 / 0.7);
-    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
-    cursor: default;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .curso-card::before {
-    content: "";
-    position: absolute;
-    top: -35%;
-    left: -35%;
-    width: 170%;
-    height: 170%;
-    background: radial-gradient(circle at center, rgba(212,175,55,0.15), transparent 70%);
-    opacity: 0;
-    transition: opacity 0.55s ease;
-    border-radius: 24px;
-    z-index: 0;
-  }
-
-  .curso-card:hover::before,
-  .curso-card:focus-within::before {
-    opacity: 1;
-  }
-
-  .curso-card:hover,
-  .curso-card:focus-within {
-    transform: translateY(-16px);
-    box-shadow:
-      0 22px 50px rgba(212, 175, 55, 0.42),
-      inset 0 0 40px rgba(212, 175, 55, 0.22);
-    border-color: #004e7a; /* celeste más brillante */
-    outline: none;
-    z-index: 2;
-  }
-
-  .curso-card img {
-    width: 100%;
-    max-width: 280px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 20px;
-    margin-bottom: 32px;
-    border: 3px solid #d4af37; /* dorado */
-    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.3);
-    transition: box-shadow 0.4s ease;
-    position: relative;
-    z-index: 3;
-  }
-
-  .curso-card:hover img {
-    box-shadow: 0 18px 40px rgba(0, 78, 122, 0.6); /* celeste */
-  }
-
-  .curso-card h3 {
-    font-size: 1.75rem;
-    font-weight: 800;
-    color: #d4af37; /* dorado */
-    margin-bottom: 36px;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    user-select: none;
-    position: relative;
-    z-index: 3;
-  }
-
-  .btn-adquirir {
-    background-color: #d4af37; /* dorado */
-    color: #002f4b; /* celeste */
-    font-weight: 700;
-    border: none;
-    padding: 18px 38px;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    text-transform: uppercase;
-    box-shadow: 0 12px 38px rgba(212, 175, 55, 0.55);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.35s ease;
-    width: 100%;
-    max-width: 280px;
-    user-select: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 14px;
-    position: relative;
-    overflow: hidden;
-    z-index: 3;
-  }
-
-  .btn-adquirir svg {
-    width: 24px;
-    height: 24px;
-    fill: #002f4b; /* celeste */
-    transition: transform 0.35s ease;
-  }
-
-  .btn-adquirir:hover svg {
-    transform: translateX(8px);
-  }
-
-  .btn-adquirir:hover,
-  .btn-adquirir:focus-visible {
-    background-color: #004e7a; /* celeste más brillante */
-    box-shadow: 0 18px 45px rgba(0, 78, 122, 0.85);
-    transform: scale(1.1);
-    outline: none;
-  }
-
-  .btn-adquirir:focus-visible {
-    outline: 3px solid #004e7a; /* celeste más brillante */
-    outline-offset: 4px;
-  }
-
-  .btn-adquirir:active {
-    transform: scale(0.95);
-  }
-
-  /* Sección conceptos estilo lista vertical */
-  #conceptos {
-    margin-top: 120px;
-    margin-bottom: 120px;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  #conceptos h2 {
-    text-align: center;
-    font-weight: 700;
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    color: #004e7a; /* celeste más brillante */
-    margin-bottom: 40px;
-  }
-  .concepto-item {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 64px;
-    align-items: center;
-    background: #003a5c; /* celeste oscuro */
-    border: 3px solid #d4af37; /* dorado */
-    border-radius: 18px;
-    padding: 24px 28px;
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.1);
-    transition: box-shadow 0.3s ease;
-  }
-  .concepto-item:hover {
-    box-shadow: 0 14px 45px rgba(0, 78, 122, 0.25);
-  }
-  .concepto-item img {
-    width: 260px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 14px;
-    border: 2px solid #d4af37; /* dorado */
-    box-shadow: 0 4px 18px rgba(212, 175, 55, 0.3);
-    user-select: none;
-  }
-  .concepto-texto {
-    flex: 1;
-    color: #d4af37; /* dorado */
-    font-size: clamp(1rem, 2vw, 1.15rem);
-    line-height: 1.5;
-    font-weight: 500;
-    user-select: text;
-  }
-  .concepto-texto strong {
-    font-weight: 700;
-    font-size: clamp(1.25rem, 2.5vw, 1.35rem);
-    display: block;
-    margin-bottom: 8px;
-  }
-
-  /* Beneficios estilo lista */
-  #beneficios {
-    margin-top: 0;
-    margin-bottom: 120px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  #beneficios h2 {
-    text-align: center;
-    font-weight: 700;
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    color: #004e7a; /* celeste más brillante */
-    margin-bottom: 40px;
-  }
-  #beneficios ul {
-    list-style-type: disc;
-    color: #d4af37; /* dorado */
-    font-size: clamp(1.1rem, 2vw, 1.25rem);
-    line-height: 1.7;
-    padding-left: 1.6rem;
-    font-weight: 600;
-  }
-  #beneficios ul li {
-    margin-bottom: 20px;
-  }
-
-  /* Footer fijo abajo */
-  footer {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background-color: #d4af37; /* dorado */
-    color: #002f4b; /* celeste */
-    font-weight: 500;
-    font-size: 1rem;
-    text-align: center;
-    padding: 14px 20px;
-    box-shadow: 0 -3px 10px rgba(212, 175, 55, 0.7);
-    user-select: none;
-    z-index: 9999;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  footer span, footer a {
-    color: #003a5c; /* celeste oscuro */
-    text-decoration: none;
-    transition: color 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
-  }
-
-  footer a:hover,
-  footer a:focus {
-    color: #002f4b; /* celeste */
-    outline: none;
-  }
+  /* Aquí termina la primera parte (hasta el header) */
 
   /* Animations */
   @keyframes fadeInUp {
@@ -464,45 +212,6 @@
     }
   }
 
-  /* Responsive */
-  @media (max-width: 760px) {
-    nav {
-      gap: 14px;
-      height: 56px;
-      padding: 0 12px;
-    }
-    nav button {
-      font-size: 0.9rem;
-      padding: 8px 18px;
-    }
-    .curso-card {
-      padding: 26px 18px 32px;
-    }
-    .curso-card img {
-      max-width: 100%;
-      height: auto;
-    }
-    #conceptos .concepto-item {
-      flex-direction: column;
-      gap: 20px;
-      padding: 20px;
-    }
-    #conceptos .concepto-item img {
-      width: 100%;
-      height: auto;
-    }
-    #conceptos .concepto-texto {
-      font-size: 1rem;
-    }
-    #beneficios ul {
-      font-size: 1rem;
-    }
-    footer {
-      font-size: 0.9rem;
-      padding: 10px 12px;
-      gap: 12px;
-    }
-  }
 </style>
 </head>
 <body>
@@ -522,7 +231,7 @@
     </p>
   </header>
 
-  <section aria-label="Lista de cursos disponibles">
+    <section aria-label="Lista de cursos disponibles">
     <div class="cursos-grid" role="list">
       <article class="curso-card" tabindex="0" role="listitem" aria-labelledby="curso-ingles">
         <img src="ingles.jpg" alt="Imagen representativa del curso de Inglés básico" />
@@ -636,6 +345,303 @@
   <a href="https://www.instagram.com/educanic" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram de EducaNIC">Instagram</a>
 </footer>
 
+<style>
+  /* Cursos Grid */
+  .cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 44px;
+    animation: fadeInUp 2s ease forwards;
+  }
+
+  .curso-card {
+    background-color: #fff3e6; /* naranja muy claro */
+    border: 3px solid #ff6600; /* naranja */
+    border-radius: 24px;
+    padding: 32px 28px 42px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow:
+      0 6px 20px rgba(255, 102, 0, 0.25),
+      inset 0 0 30px rgba(255,102,0,0.7);
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .curso-card::before {
+    content: "";
+    position: absolute;
+    top: -35%;
+    left: -35%;
+    width: 170%;
+    height: 170%;
+    background: radial-gradient(circle at center, rgba(255,102,0,0.15), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.55s ease;
+    border-radius: 24px;
+    z-index: 0;
+  }
+
+  .curso-card:hover::before,
+  .curso-card:focus-within::before {
+    opacity: 1;
+  }
+
+  .curso-card:hover,
+  .curso-card:focus-within {
+    transform: translateY(-16px);
+    box-shadow:
+      0 22px 50px rgba(255, 102, 0, 0.42),
+      inset 0 0 40px rgba(255, 102, 0, 0.22);
+    border-color: #cc4d00; /* naranja más oscuro */
+    outline: none;
+    z-index: 2;
+  }
+
+  .curso-card img {
+    width: 100%;
+    max-width: 280px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 32px;
+    border: 3px solid #ff6600; /* naranja */
+    box-shadow: 0 12px 30px rgba(255, 102, 0, 0.3);
+    transition: box-shadow 0.4s ease;
+    position: relative;
+    z-index: 3;
+  }
+
+  .curso-card:hover img {
+    box-shadow: 0 18px 40px rgba(204, 77, 0, 0.6); /* naranja más oscuro */
+  }
+
+  .curso-card h3 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #ff6600; /* naranja */
+    margin-bottom: 36px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    user-select: none;
+    position: relative;
+    z-index: 3;
+  }
+
+  .btn-adquirir {
+    background-color: #ff6600; /* naranja */
+    color: #ffffff; /* blanco */
+    font-weight: 700;
+    border: none;
+    padding: 18px 38px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 12px 38px rgba(255, 102, 0, 0.55);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.35s ease;
+    width: 100%;
+    max-width: 280px;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    overflow: hidden;
+    z-index: 3;
+  }
+
+  .btn-adquirir svg {
+    width: 24px;
+    height: 24px;
+    fill: #ffffff; /* blanco */
+    transition: transform 0.35s ease;
+  }
+
+  .btn-adquirir:hover svg {
+    transform: translateX(8px);
+  }
+
+  .btn-adquirir:hover,
+  .btn-adquirir:focus-visible {
+    background-color: #cc4d00; /* naranja más oscuro */
+    box-shadow: 0 18px 45px rgba(204, 77, 0, 0.85);
+    transform: scale(1.1);
+    outline: none;
+  }
+
+  .btn-adquirir:focus-visible {
+    outline: 3px solid #cc4d00; /* naranja más oscuro */
+    outline-offset: 4px;
+  }
+
+  .btn-adquirir:active {
+    transform: scale(0.95);
+  }
+
+  /* Sección conceptos estilo lista vertical */
+  #conceptos {
+    margin-top: 120px;
+    margin-bottom: 120px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #conceptos h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: #cc4d00; /* naranja más oscuro */
+    margin-bottom: 40px;
+  }
+  .concepto-item {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 64px;
+    align-items: center;
+    background: #fff3e6; /* naranja muy claro */
+    border: 3px solid #ff6600; /* naranja */
+    border-radius: 18px;
+    padding: 24px 28px;
+    box-shadow: 0 8px 25px rgba(255, 102, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  .concepto-item:hover {
+    box-shadow: 0 14px 45px rgba(204, 77, 0, 0.25);
+  }
+  .concepto-item img {
+    width: 260px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 2px solid #ff6600; /* naranja */
+    box-shadow: 0 4px 18px rgba(255, 102, 0, 0.3);
+    user-select: none;
+  }
+  .concepto-texto {
+    flex: 1;
+    color: #ff6600; /* naranja */
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.5;
+    font-weight: 500;
+    user-select: text;
+  }
+  .concepto-texto strong {
+    font-weight: 700;
+    font-size: clamp(1.25rem, 2.5vw, 1.35rem);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* Beneficios estilo lista */
+  #beneficios {
+    margin-top: 0;
+    margin-bottom: 120px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #beneficios h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: #cc4d00; /* naranja más oscuro */
+    margin-bottom: 40px;
+  }
+  #beneficios ul {
+    list-style-type: disc;
+    color: #ff6600; /* naranja */
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    line-height: 1.7;
+    padding-left: 1.6rem;
+    font-weight: 600;
+  }
+  #beneficios ul li {
+    margin-bottom: 20px;
+  }
+
+  /* Footer fijo abajo */
+  footer {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background-color: #ff6600; /* naranja */
+    color: #ffffff; /* blanco */
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+    padding: 14px 20px;
+    box-shadow: 0 -3px 10px rgba(255, 102, 0, 0.7);
+    user-select: none;
+    z-index: 9999;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  footer span, footer a {
+    color: #ffffff; /* blanco */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+  }
+
+  footer a:hover,
+  footer a:focus {
+    color: #cc4d00; /* naranja más oscuro */
+    outline: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 760px) {
+    nav {
+      gap: 14px;
+      height: 56px;
+      padding: 0 12px;
+    }
+    nav button {
+      font-size: 0.9rem;
+      padding: 8px 18px;
+    }
+    .curso-card {
+      padding: 26px 18px 32px;
+    }
+    .curso-card img {
+      max-width: 100%;
+      height: auto;
+    }
+    #conceptos .concepto-item {
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+    }
+    #conceptos .concepto-item img {
+      width: 100%;
+      height: auto;
+    }
+    #conceptos .concepto-texto {
+      font-size: 1rem;
+    }
+    #beneficios ul {
+      font-size: 1rem;
+    }
+    footer {
+      font-size: 0.9rem;
+      padding: 10px 12px;
+      gap: 12px;
+    }
+  }
+</style>
 </body>
 </html>
+
+
 
