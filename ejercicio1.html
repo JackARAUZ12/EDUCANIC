@@ -198,6 +198,7 @@
         <div class="lock-text">Tema desbloqueado</div>
       </div>
     </article>
+
     <!-- Tema 2 -->
     <article class="tema locked" data-tema="2" aria-labelledby="t2">
       <div class="flash" id="flash-2"></div>
@@ -348,14 +349,14 @@ function burstConfetti(){
     el.style.top = Math.random()*10 + '%';
     el.style.fontSize = (10 + Math.random()*18) + 'px';
     el.style.opacity = '0';
-    el.style.transform = `translateY(-20px) rotate(${Math.random()*360}deg)`;
-    el.style.transition = `all ${0.9 + Math.random()*0.8}s cubic-bezier(.2,.9,.3,1)`;
+    el.style.transform = translateY(-20px) rotate(${Math.random()*360}deg);
+    el.style.transition = all ${0.9 + Math.random()*0.8}s cubic-bezier(.2,.9,.3,1);
     confettiContainer.appendChild(el);
     // trigger
     requestAnimationFrame(()=> {
       el.style.opacity = '1';
       el.style.top = (40 + Math.random()*60) + '%';
-      el.style.transform = `translateY(0) rotate(${Math.random()*720}deg)`;
+      el.style.transform = translateY(0) rotate(${Math.random()*720}deg);
     });
     setTimeout(()=> el.remove(), 2000 + Math.random()*1200);
   }
@@ -404,7 +405,7 @@ function marcarCompleto(n){
 /* Desbloquea el siguiente tema con animación */
 function desbloquearSiguiente(n){
   const siguiente = Number(n) + 1;
-  const temaElem = document.querySelector(`.tema[data-tema="${siguiente}"]`);
+  const temaElem = document.querySelector(.tema[data-tema="${siguiente}"]);
   if (!temaElem) return;
   if (progreso[String(siguiente)]) return; // ya desbloqueado
   // desbloquear visiblemente
@@ -509,14 +510,14 @@ document.querySelectorAll('.form-tema').forEach(form=>{
       burstConfetti();
       showToast(frases[Math.floor(Math.random()*frases.length)], 'success');
       // animate flash on current
-      const current = document.querySelector(`.tema[data-tema="${temaN}"]`);
+      const current = document.querySelector(.tema[data-tema="${temaN}"]);
       const flashElem = current.querySelector('.flash');
       if (flashElem){ flashElem.classList.add('on'); setTimeout(()=>flashElem.classList.remove('on'),700); }
       // enable next after short delay for UX
       setTimeout(()=> desbloquearSiguiente(String(temaN)), 650);
     } else {
       // incorrecto -> shake + toast
-      const card = document.querySelector(`.tema[data-tema="${temaN}"]`);
+      const card = document.querySelector(.tema[data-tema="${temaN}"]);
       card.animate([
         { transform: 'translateX(0px)' },
         { transform: 'translateX(-8px)' },
@@ -525,13 +526,23 @@ document.querySelectorAll('.form-tema').forEach(form=>{
       ], { duration: 360, easing: 'ease-in-out' });
       showToast('❌ Incorrecto, inténtalo otra vez. Tú puedes 💡', 'error');
     }
+    actualizarUI();
   });
 });
 
-/* Al cargar */
+/* On load */
 actualizarUI();
-</script>
 
+/* Accessibility: allow Enter on overlays if unlocked */
+document.querySelectorAll('.tema').forEach(t=>{
+  t.addEventListener('keydown', e=>{
+    if(e.key==='Enter'){
+      const btn = t.querySelector('.check-btn');
+      if(btn && !btn.disabled) btn.click();
+    }
+  });
+});
+
+</script>
 </body>
 </html>
-
