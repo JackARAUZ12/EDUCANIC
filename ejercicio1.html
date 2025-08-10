@@ -198,7 +198,6 @@
         <div class="lock-text">Tema desbloqueado</div>
       </div>
     </article>
-
     <!-- Tema 2 -->
     <article class="tema locked" data-tema="2" aria-labelledby="t2">
       <div class="flash" id="flash-2"></div>
@@ -526,23 +525,13 @@ document.querySelectorAll('.form-tema').forEach(form=>{
       ], { duration: 360, easing: 'ease-in-out' });
       showToast('❌ Incorrecto, inténtalo otra vez. Tú puedes 💡', 'error');
     }
-    actualizarUI();
   });
 });
 
-/* On load */
+/* Al cargar */
 actualizarUI();
-
-/* Accessibility: allow Enter on overlays if unlocked */
-document.querySelectorAll('.tema').forEach(t=>{
-  t.addEventListener('keydown', e=>{
-    if(e.key==='Enter'){
-      const btn = t.querySelector('.check-btn');
-      if(btn && !btn.disabled) btn.click();
-    }
-  });
-});
-
 </script>
+
 </body>
 </html>
+
