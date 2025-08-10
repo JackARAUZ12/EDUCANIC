@@ -300,6 +300,87 @@
     transform: scale(0.95);
   }
 
+  /* Sección conceptos estilo lista vertical */
+  #conceptos {
+    margin-top: 120px;
+    margin-bottom: 120px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #conceptos h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.8rem;
+    color: #084a8a;
+    margin-bottom: 40px;
+  }
+  .concepto-item {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 64px;
+    align-items: center;
+    background: #f0f5ff;
+    border: 3px solid #0b3d91;
+    border-radius: 18px;
+    padding: 24px 28px;
+    box-shadow: 0 8px 25px rgba(11, 61, 145, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  .concepto-item:hover {
+    box-shadow: 0 14px 45px rgba(8, 74, 138, 0.25);
+  }
+  .concepto-item img {
+    width: 260px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 2px solid #0b3d91;
+    box-shadow: 0 4px 18px rgba(11, 61, 145, 0.3);
+    user-select: none;
+  }
+  .concepto-texto {
+    flex: 1;
+    color: #0b3d91;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    font-weight: 500;
+    user-select: text;
+  }
+  .concepto-texto strong {
+    font-weight: 700;
+    font-size: 1.35rem;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* Beneficios estilo lista */
+  #beneficios {
+    margin-top: 0;
+    margin-bottom: 120px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #beneficios h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.8rem;
+    color: #084a8a;
+    margin-bottom: 40px;
+  }
+  #beneficios ul {
+    list-style-type: disc;
+    color: #0b3d91;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    padding-left: 1.6rem;
+    font-weight: 600;
+  }
+  #beneficios ul li {
+    margin-bottom: 20px;
+  }
+
   /* Footer fijo abajo */
   footer {
     position: fixed;
@@ -313,13 +394,20 @@
     box-shadow: 0 -3px 10px rgba(11, 61, 145, 0.7);
     user-select: none;
     z-index: 9999;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
   }
 
   footer span, footer a {
-    margin: 0 10px;
     color: #d0dfff;
     text-decoration: none;
     transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
   }
 
   footer a:hover,
@@ -375,6 +463,22 @@
   }
 
   /* Responsive */
+  @media (max-width: 960px) {
+    .concepto-item {
+      flex-direction: column;
+      text-align: center;
+    }
+    .concepto-item img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      margin-bottom: 18px;
+    }
+    .concepto-texto {
+      font-size: 1.1rem;
+    }
+  }
+
   @media (max-width: 520px) {
     header h1 {
       font-size: 3.2rem;
@@ -400,6 +504,12 @@
       max-width: 100%;
       padding: 14px 24px;
     }
+    footer {
+      flex-direction: column;
+      font-size: 0.9rem;
+      gap: 12px;
+      padding: 12px 15px;
+    }
   }
 </style>
 </head>
@@ -412,19 +522,18 @@
 </nav>
 
 <main>
+  <header id="inicio" tabindex="0" aria-label="Introducción a EducaNIC">
+    <h1>EducaNIC</h1>
+    <h2>¿Quiénes somos?</h2>
+    <p contenteditable="true" aria-label="Texto editable sobre quiénes somos">
+      Somos EducaNIC, una plataforma educativa dedicada a ofrecer cursos de alta calidad que te ayudarán a desarrollar tus habilidades y alcanzar tus metas. Aprende con nosotros en un ambiente profesional, dinámico y adaptado a tus necesidades.
+    </p>
+  </header>
 
-  <section id="inicio">
-    <header>
-      <h1>EducaNIC</h1>
-      <h2>¿Quiénes somos?</h2>
-      <p contenteditable="true" aria-label="Texto editable para describir quiénes somos" tabindex="0">
-        Somos EducaNIC, una plataforma dedicada a ofrecer cursos de calidad para impulsar tu desarrollo personal y profesional. Aquí encontrarás formación práctica, clara y accesible en diversas áreas, diseñada para que aprendas y crezcas con seguridad y confianza. ¡Explora nuestros cursos y comienza hoy tu aprendizaje!
-      </p>
-    </header>
-
-    <div class="cursos-grid" aria-label="Lista de cursos disponibles">
-      <article class="curso-card" tabindex="0" aria-labelledby="curso-ingles">
-        <img src="ingles.jpg" alt="Imagen representativa del curso de Inglés" />
+  <section aria-label="Lista de cursos disponibles">
+    <div class="cursos-grid" role="list">
+      <article class="curso-card" tabindex="0" role="listitem" aria-labelledby="curso-ingles">
+        <img src="ingles.jpg" alt="Imagen representativa del curso de Inglés básico" />
         <h3 id="curso-ingles">Curso de Inglés</h3>
         <button class="btn-adquirir" onclick="location.href='ingles.html'" aria-label="Adquirir curso de Inglés">
           Adquiere el Curso ya
@@ -434,7 +543,7 @@
         </button>
       </article>
 
-      <article class="curso-card" tabindex="0" aria-labelledby="curso-computacion">
+      <article class="curso-card" tabindex="0" role="listitem" aria-labelledby="curso-computacion">
         <img src="computacion.jpg" alt="Imagen representativa del curso de Computación" />
         <h3 id="curso-computacion">Curso de Computación</h3>
         <button class="btn-adquirir" onclick="location.href='computacion.html'" aria-label="Adquirir curso de Computación">
@@ -445,10 +554,10 @@
         </button>
       </article>
 
-      <article class="curso-card" tabindex="0" aria-labelledby="curso-diseno">
-        <img src="diseno-grafico.jpg" alt="Imagen representativa del curso de Diseño Gráfico" />
-        <h3 id="curso-diseno">Curso de Diseño Gráfico</h3>
-        <button class="btn-adquirir" onclick="location.href='diseno-grafico.html'" aria-label="Adquirir curso de Diseño Gráfico">
+      <article class="curso-card" tabindex="0" role="listitem" aria-labelledby="curso-diseno">
+        <img src="diseno.jpg" alt="Imagen representativa del curso de Diseño gráfico" />
+        <h3 id="curso-diseno">Curso de Diseño gráfico</h3>
+        <button class="btn-adquirir" onclick="location.href='diseno.html'" aria-label="Adquirir curso de Diseño gráfico">
           Adquiere el Curso ya
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <path d="M8 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -456,10 +565,10 @@
         </button>
       </article>
 
-      <article class="curso-card" tabindex="0" aria-labelledby="curso-edicion">
-        <img src="edicion-videos.jpg" alt="Imagen representativa del curso de Edición de Videos" />
-        <h3 id="curso-edicion">Curso de Edición de Videos</h3>
-        <button class="btn-adquirir" onclick="location.href='edicion-videos.html'" aria-label="Adquirir curso de Edición de Videos">
+      <article class="curso-card" tabindex="0" role="listitem" aria-labelledby="curso-edicion">
+        <img src="edicion.jpg" alt="Imagen representativa del curso de Edición de videos" />
+        <h3 id="curso-edicion">Curso de Edición de videos</h3>
+        <button class="btn-adquirir" onclick="location.href='edicion.html'" aria-label="Adquirir curso de Edición de videos">
           Adquiere el Curso ya
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <path d="M8 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -467,7 +576,7 @@
         </button>
       </article>
 
-      <article class="curso-card" tabindex="0" aria-labelledby="curso-cocina">
+      <article class="curso-card" tabindex="0" role="listitem" aria-labelledby="curso-cocina">
         <img src="cocina.jpg" alt="Imagen representativa del curso de Cocina" />
         <h3 id="curso-cocina">Curso de Cocina</h3>
         <button class="btn-adquirir" onclick="location.href='cocina.html'" aria-label="Adquirir curso de Cocina">
@@ -478,7 +587,7 @@
         </button>
       </article>
 
-      <article class="curso-card" tabindex="0" aria-labelledby="curso-baile">
+      <article class="curso-card" tabindex="0" role="listitem" aria-labelledby="curso-baile">
         <img src="baile.jpg" alt="Imagen representativa del curso de Baile" />
         <h3 id="curso-baile">Curso de Baile</h3>
         <button class="btn-adquirir" onclick="location.href='baile.html'" aria-label="Adquirir curso de Baile">
@@ -489,7 +598,7 @@
         </button>
       </article>
 
-      <article class="curso-card" tabindex="0" aria-labelledby="curso-canto">
+      <article class="curso-card" tabindex="0" role="listitem" aria-labelledby="curso-canto">
         <img src="canto.jpg" alt="Imagen representativa del curso de Canto" />
         <h3 id="curso-canto">Curso de Canto</h3>
         <button class="btn-adquirir" onclick="location.href='canto.html'" aria-label="Adquirir curso de Canto">
@@ -502,25 +611,86 @@
     </div>
   </section>
 
-  <section id="conceptos" style="margin-top: 120px;">
-    <h2 style="text-align:center; font-weight: 700; font-size: 2.8rem; color: #084a8a; margin-bottom: 40px;">Conceptos</h2>
-    <p style="max-width: 700px; margin: 0 auto; font-size: 1.2rem; color: #0b3d91; line-height: 1.6; user-select: text;">
-      Aquí puedes editar el texto con los conceptos educativos que quieres explicar. Por ejemplo, qué son los cursos, su importancia, los beneficios de aprender con EducaNIC, y cualquier contenido formativo que quieras destacar.
-    </p>
+  <section id="conceptos" tabindex="0" aria-label="Conceptos de los cursos">
+    <h2>Conceptos</h2>
+
+    <article class="concepto-item" aria-labelledby="concepto-ingles-titulo">
+      <img src="ingles.jpg" alt="Curso de Inglés básico" />
+      <div class="concepto-texto">
+        <strong id="concepto-ingles-titulo">Curso de Inglés</strong>
+        <p>Aprende el idioma universal con nuestro Curso de Inglés básico. Desde el abecedario, vocabulario esencial, frases de saludo y despedida, hasta estructuras gramaticales básicas para comunicarte en situaciones cotidianas.</p>
+      </div>
+    </article>
+
+    <article class="concepto-item" aria-labelledby="concepto-computacion-titulo">
+      <img src="computacion.jpg" alt="Curso de Computación" />
+      <div class="concepto-texto">
+        <strong id="concepto-computacion-titulo">Curso de Computación</strong>
+        <p>Desarrolla habilidades fundamentales en el manejo de computadoras, sistemas operativos, procesadores de texto y hojas de cálculo, para destacar en el mundo digital actual.</p>
+      </div>
+    </article>
+
+    <article class="concepto-item" aria-labelledby="concepto-diseno-titulo">
+      <img src="diseno.jpg" alt="Curso de Diseño gráfico" />
+      <div class="concepto-texto">
+        <strong id="concepto-diseno-titulo">Curso de Diseño gráfico</strong>
+        <p>Explora la creatividad y aprende a utilizar herramientas de diseño para crear imágenes, logos, y contenido visual impactante y profesional.</p>
+      </div>
+    </article>
+
+    <article class="concepto-item" aria-labelledby="concepto-edicion-titulo">
+      <img src="edicion.jpg" alt="Curso de Edición de videos" />
+      <div class="concepto-texto">
+        <strong id="concepto-edicion-titulo">Curso de Edición de videos</strong>
+        <p>Aprende a editar videos con técnicas profesionales, desde cortes básicos hasta efectos especiales, para crear contenido audiovisual de calidad.</p>
+      </div>
+    </article>
+
+    <article class="concepto-item" aria-labelledby="concepto-cocina-titulo">
+      <img src="cocina.jpg" alt="Curso de Cocina" />
+      <div class="concepto-texto">
+        <strong id="concepto-cocina-titulo">Curso de Cocina</strong>
+        <p>Domina recetas fáciles y deliciosas, técnicas culinarias básicas, y aprende a preparar platillos variados que sorprenderán a todos.</p>
+      </div>
+    </article>
+
+    <article class="concepto-item" aria-labelledby="concepto-baile-titulo">
+      <img src="baile.jpg" alt="Curso de Baile" />
+      <div class="concepto-texto">
+        <strong id="concepto-baile-titulo">Curso de Baile</strong>
+        <p>Disfruta y mejora tu coordinación con nuestros cursos de baile para principiantes, aprendiendo pasos básicos y ritmos populares.</p>
+      </div>
+    </article>
+
+    <article class="concepto-item" aria-labelledby="concepto-canto-titulo">
+      <img src="canto.jpg" alt="Curso de Canto" />
+      <div class="concepto-texto">
+        <strong id="concepto-canto-titulo">Curso de Canto</strong>
+        <p>Desarrolla tu voz y técnica vocal con ejercicios y teoría para cantar con confianza y expresión.</p>
+      </div>
+    </article>
   </section>
 
-  <section id="beneficios" style="margin-top: 120px; margin-bottom: 120px;">
-    <h2 style="text-align:center; font-weight: 700; font-size: 2.8rem; color: #084a8a; margin-bottom: 40px;">Beneficios</h2>
-    <p style="max-width: 700px; margin: 0 auto; font-size: 1.2rem; color: #0b3d91; line-height: 1.6; user-select: text;">
-      Aquí puedes agregar texto sobre los beneficios que tienen los alumnos al estudiar con EducaNIC: flexibilidad, contenido actualizado, tutores expertos, comunidad de aprendizaje, certificaciones, y más.
-    </p>
+  <section id="beneficios" tabindex="0" aria-label="Beneficios de estudiar con EducaNIC">
+    <h2>Beneficios</h2>
+    <ul>
+      <li>NOS ACOMODAMOS A TU HORARIO</li>
+      <li>SESIÓN PSICOLÓGICA GRATIS</li>
+      <li>DOCENTES CALIFICADOS</li>
+      <li>PEDAGOGÍA EXTRAORDINARIA</li>
+      <li>PROMOCIONES Y BECAS</li>
+    </ul>
   </section>
 
 </main>
 
 <footer role="contentinfo" aria-label="Información de contacto y derechos reservados">
-  <span>📞 <a href="tel:+50581294177" aria-label="Número de teléfono">8129-4177</a></span>
-  <span>✉️ <a href="mailto:jackarauz2008@gmail.com" aria-label="Correo electrónico">jackarauz2008@gmail.com</a></span>
+  <span>📞 
+    <a href="https://wa.me/50581294177" target="_blank" rel="noopener" aria-label="Enviar mensaje WhatsApp al número 8129-4177">8129-4177</a>
+  </span>
+  <span>✉️ 
+    <a href="mailto:jackarauz2008@gmail.com" aria-label="Enviar correo electrónico a jackarauz2008@gmail.com">jackarauz2008@gmail.com</a>
+  </span>
   <span>© EducaNIC - 2025. Todos los derechos reservados.</span>
 </footer>
 
