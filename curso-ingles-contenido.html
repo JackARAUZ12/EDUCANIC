@@ -80,6 +80,10 @@
       transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
       flex: 1 1 250px;
       max-width: 280px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
     }
     .opcion:hover {
       background-color: #ff8533; /* naranja más claro */
@@ -141,11 +145,9 @@
     <h1 tabindex="0">BIENVENIDO ESTIMADO USUARIO</h1>
 
     <div class="opciones-container" role="list">
-      <div class="opcion" role="listitem" tabindex="0" onclick="alert('Aquí irán las actividades pronto')"
-           onkeypress="if(event.key==='Enter') alert('Aquí irán las actividades pronto')"
-           aria-label="Ver actividades del curso">
+      <a href="ejercicio1.html" class="opcion" role="listitem" tabindex="0" aria-label="Ver actividades del curso">
         Actividades
-      </div>
+      </a>
       <div class="opcion" role="listitem" tabindex="0" onclick="alert('Aquí irán los folletos de estudio pronto')"
            onkeypress="if(event.key==='Enter') alert('Aquí irán los folletos de estudio pronto')"
            aria-label="Ver folletos de estudio">
