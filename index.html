@@ -21,6 +21,8 @@
     flex-direction: column;
     padding-top: 72px; /* para barra fija */
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Barra superior fija */
@@ -103,7 +105,7 @@
 
   header h1 {
     font-weight: 800;
-    font-size: 4.5rem;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
     letter-spacing: 6px;
     color: #0b3d91;
     display: inline-block;
@@ -129,7 +131,7 @@
 
   header h2 {
     font-weight: 700;
-    font-size: 2.2rem;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
     margin: 30px 0 40px;
     color: #084a8a;
     text-transform: uppercase;
@@ -139,7 +141,7 @@
 
   header p {
     font-weight: 400;
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     line-height: 1.8;
     max-width: 720px;
     margin: 0 auto;
@@ -149,7 +151,7 @@
     padding: 35px 45px;
     color: #0b3d91;
     user-select: text;
-    cursor: text;
+    cursor: default;
     box-shadow: 0 10px 30px rgba(11, 61, 145, 0.18);
     transition: background-color 0.35s ease, border-color 0.35s ease;
     animation: fadeIn 1.7s ease forwards;
@@ -311,7 +313,7 @@
   #conceptos h2 {
     text-align: center;
     font-weight: 700;
-    font-size: 2.8rem;
+    font-size: clamp(2rem, 4vw, 2.8rem);
     color: #084a8a;
     margin-bottom: 40px;
   }
@@ -342,14 +344,14 @@
   .concepto-texto {
     flex: 1;
     color: #0b3d91;
-    font-size: 1.15rem;
+    font-size: clamp(1rem, 2vw, 1.15rem);
     line-height: 1.5;
     font-weight: 500;
     user-select: text;
   }
   .concepto-texto strong {
     font-weight: 700;
-    font-size: 1.35rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.35rem);
     display: block;
     margin-bottom: 8px;
   }
@@ -365,14 +367,14 @@
   #beneficios h2 {
     text-align: center;
     font-weight: 700;
-    font-size: 2.8rem;
+    font-size: clamp(2rem, 4vw, 2.8rem);
     color: #084a8a;
     margin-bottom: 40px;
   }
   #beneficios ul {
     list-style-type: disc;
     color: #0b3d91;
-    font-size: 1.25rem;
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
     line-height: 1.7;
     padding-left: 1.6rem;
     font-weight: 600;
@@ -454,7 +456,7 @@
   @keyframes navSlideDown {
     0% {
       opacity: 0;
-      transform: translateY(-100%);
+      transform: translateY(-30px);
     }
     100% {
       opacity: 1;
@@ -463,52 +465,42 @@
   }
 
   /* Responsive */
-  @media (max-width: 960px) {
-    .concepto-item {
-      flex-direction: column;
-      text-align: center;
+  @media (max-width: 760px) {
+    nav {
+      gap: 14px;
+      height: 56px;
+      padding: 0 12px;
     }
-    .concepto-item img {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      margin-bottom: 18px;
+    nav button {
+      font-size: 0.9rem;
+      padding: 8px 18px;
     }
-    .concepto-texto {
-      font-size: 1.1rem;
-    }
-  }
-
-  @media (max-width: 520px) {
-    header h1 {
-      font-size: 3.2rem;
-      letter-spacing: 3px;
-    }
-    header h2 {
-      font-size: 1.6rem;
-    }
-    header p {
-      font-size: 1rem;
-      padding: 25px 20px;
-      max-width: 100%;
-    }
-    .cursos-grid {
-      grid-template-columns: 1fr;
-      gap: 32px;
+    .curso-card {
+      padding: 26px 18px 32px;
     }
     .curso-card img {
-      height: 140px;
-    }
-    .btn-adquirir {
-      font-size: 1rem;
       max-width: 100%;
-      padding: 14px 24px;
+      height: auto;
+    }
+    #conceptos .concepto-item {
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+    }
+    #conceptos .concepto-item img {
+      width: 100%;
+      height: auto;
+    }
+    #conceptos .concepto-texto {
+      font-size: 1rem;
+    }
+    #beneficios ul {
+      font-size: 1rem;
     }
     footer {
-      flex-direction: column;
       font-size: 0.9rem;
+      padding: 10px 12px;
       gap: 12px;
-      padding: 12px 15px;
     }
   }
 </style>
@@ -525,7 +517,7 @@
   <header id="inicio" tabindex="0" aria-label="Introducción a EducaNIC">
     <h1>EducaNIC</h1>
     <h2>¿Quiénes somos?</h2>
-    <p contenteditable="true" aria-label="Texto editable sobre quiénes somos">
+    <p aria-label="Descripción de EducaNIC">
       Somos EducaNIC, una plataforma educativa dedicada a ofrecer cursos de alta calidad que te ayudarán a desarrollar tus habilidades y alcanzar tus metas. Aprende con nosotros en un ambiente profesional, dinámico y adaptado a tus necesidades.
     </p>
   </header>
@@ -681,7 +673,6 @@
       <li>PROMOCIONES Y BECAS</li>
     </ul>
   </section>
-
 </main>
 
 <footer role="contentinfo" aria-label="Información de contacto y derechos reservados">
