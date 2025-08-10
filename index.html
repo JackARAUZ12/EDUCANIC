@@ -15,7 +15,7 @@
   body {
     font-family: 'Poppins', sans-serif;
     background: #fff;
-    color: #0b2545; /* Azul marino */
+    color: #00aaff; /* celeste */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -30,20 +30,20 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     height: 60px;
-    background-color: #0b2545; /* Azul marino */
+    background-color: #00aaff; /* celeste */
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 24px;
     z-index: 9999;
-    box-shadow: 0 3px 10px rgba(11,37,69,0.6);
+    box-shadow: 0 3px 10px rgba(0,170,255,0.6);
     animation: navSlideDown 0.8s ease forwards;
   }
 
   nav button {
     background: transparent;
-    border: 2.5px solid #ffd500; /* Amarillo */
-    color: #ffd500;
+    border: 2.5px solid #d4af37; /* dorado */
+    color: #d4af37; /* dorado */
     font-weight: 600;
     font-size: 1rem;
     padding: 8px 24px;
@@ -62,7 +62,7 @@
     height: 120%;
     top: -110%;
     left: -110%;
-    background: rgba(255 213 0 / 0.15); /* Amarillo semi transparente */
+    background: rgba(212,175,55, 0.15); /* dorado translúcido */
     transform: rotate(45deg);
     transition: all 0.5s ease;
     z-index: 0;
@@ -76,16 +76,16 @@
 
   nav button:hover,
   nav button:focus-visible {
-    background-color: #ffd500; /* Amarillo */
-    color: #0b2545; /* Azul marino */
-    box-shadow: 0 0 15px #ffd500cc;
+    background-color: #d4af37; /* dorado */
+    color: #00aaff; /* celeste */
+    box-shadow: 0 0 15px #d4af37cc;
     outline: none;
     z-index: 1;
   }
 
   nav button:focus-visible {
     outline-offset: 3px;
-    outline: 3px solid #ffd500cc;
+    outline: 3px solid #d4af37cc;
   }
 
   nav button:active {
@@ -107,10 +107,10 @@
     font-weight: 800;
     font-size: clamp(2.8rem, 5vw, 4.5rem);
     letter-spacing: 6px;
-    color: #0b2545; /* Azul marino */
+    color: #00aaff; /* celeste */
     display: inline-block;
     padding-bottom: 10px;
-    border-bottom: 6px solid #ffd500; /* Amarillo */
+    border-bottom: 6px solid #00aaff; /* celeste */
     animation: fadeInScale 1s ease forwards;
     position: relative;
   }
@@ -120,7 +120,7 @@
     position: absolute;
     width: 70px;
     height: 8px;
-    background: #d4af37; /* Amarillo más dorado */
+    background: #d4af37; /* dorado */
     bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
@@ -133,7 +133,7 @@
     font-weight: 700;
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     margin: 30px 0 40px;
-    color: #0b2545; /* Azul marino */
+    color: #d4af37; /* dorado */
     text-transform: uppercase;
     letter-spacing: 3px;
     animation: fadeInUp 1.4s ease forwards;
@@ -145,22 +145,22 @@
     line-height: 1.8;
     max-width: 720px;
     margin: 0 auto;
-    background-color: #fff8cc; /* Amarillo muy suave */
-    border: 3px solid #ffd500; /* Amarillo */
+    background-color: #e0f7ff; /* celeste claro */
+    border: 3px solid #00aaff; /* celeste */
     border-radius: 18px;
     padding: 35px 45px;
-    color: #0b2545; /* Azul marino */
+    color: #00aaff; /* celeste */
     user-select: text;
     cursor: default;
-    box-shadow: 0 10px 30px rgba(45, 74, 128, 0.18);
+    box-shadow: 0 10px 30px rgba(0, 170, 255, 0.18);
     transition: background-color 0.35s ease, border-color 0.35s ease;
     animation: fadeIn 1.7s ease forwards;
   }
 
   header p:hover,
   header p:focus {
-    background-color: #fff3a1; /* Amarillo un poco más intenso */
-    border-color: #d4af37;
+    background-color: #b6e1ff; /* celeste más intenso */
+    border-color: #d4af37; /* dorado */
     outline: none;
   }
 
@@ -173,16 +173,16 @@
   }
 
   .curso-card {
-    background-color: #ffffff;
-    border: 3px solid #0b2545; /* Azul marino */
+    background-color: #f9fbff;
+    border: 3px solid #00aaff; /* celeste */
     border-radius: 24px;
     padding: 32px 28px 42px;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow:
-      0 6px 20px rgba(11, 37, 69, 0.25),
-      inset 0 0 30px rgba(255 213 0 / 0.15);
+      0 6px 20px rgba(0, 170, 255, 0.25),
+      inset 0 0 30px rgba(255 255 255, 0.7);
     transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
     cursor: default;
     position: relative;
@@ -196,7 +196,7 @@
     left: -35%;
     width: 170%;
     height: 170%;
-    background: radial-gradient(circle at center, rgba(255 213 0 / 0.15), transparent 70%);
+    background: radial-gradient(circle at center, rgba(0,170,255,0.15), transparent 70%);
     opacity: 0;
     transition: opacity 0.55s ease;
     border-radius: 24px;
@@ -212,9 +212,9 @@
   .curso-card:focus-within {
     transform: translateY(-16px);
     box-shadow:
-      0 22px 50px rgba(11, 37, 69, 0.42),
-      inset 0 0 40px rgba(255 213 0 / 0.22);
-    border-color: #d4af37;
+      0 22px 50px rgba(0, 170, 255, 0.42),
+      inset 0 0 40px rgba(0, 170, 255, 0.22);
+    border-color: #d4af37; /* dorado */
     outline: none;
     z-index: 2;
   }
@@ -226,21 +226,21 @@
     object-fit: cover;
     border-radius: 20px;
     margin-bottom: 32px;
-    border: 3px solid #0b2545; /* Azul marino */
-    box-shadow: 0 12px 30px rgba(11, 37, 69, 0.3);
+    border: 3px solid #00aaff; /* celeste */
+    box-shadow: 0 12px 30px rgba(0, 170, 255, 0.3);
     transition: box-shadow 0.4s ease;
     position: relative;
     z-index: 3;
   }
 
   .curso-card:hover img {
-    box-shadow: 0 18px 40px rgba(212, 175, 55, 0.6);
+    box-shadow: 0 18px 40px rgba(212,175,55,0.6); /* dorado */
   }
 
   .curso-card h3 {
     font-size: 1.75rem;
     font-weight: 800;
-    color: #0b2545; /* Azul marino */
+    color: #00aaff; /* celeste */
     margin-bottom: 36px;
     text-align: center;
     text-transform: uppercase;
@@ -251,8 +251,8 @@
   }
 
   .btn-adquirir {
-    background-color: #0b2545; /* Azul marino */
-    color: #ffd500; /* Amarillo */
+    background-color: #00aaff; /* celeste */
+    color: #fff;
     font-weight: 700;
     border: none;
     padding: 18px 38px;
@@ -260,7 +260,7 @@
     font-size: 1.2rem;
     cursor: pointer;
     text-transform: uppercase;
-    box-shadow: 0 12px 38px rgba(11, 37, 69, 0.55);
+    box-shadow: 0 12px 38px rgba(0, 170, 255, 0.55);
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.35s ease;
     width: 100%;
     max-width: 280px;
@@ -277,7 +277,7 @@
   .btn-adquirir svg {
     width: 24px;
     height: 24px;
-    fill: #ffd500; /* Amarillo */
+    fill: #fff;
     transition: transform 0.35s ease;
   }
 
@@ -287,11 +287,10 @@
 
   .btn-adquirir:hover,
   .btn-adquirir:focus-visible {
-    background-color: #d4af37; /* Amarillo dorado */
-    box-shadow: 0 18px 45px rgba(212, 175, 55, 0.85);
+    background-color: #d4af37; /* dorado */
+    box-shadow: 0 18px 45px rgba(212,175,55,0.85);
     transform: scale(1.1);
     outline: none;
-    color: #0b2545;
   }
 
   .btn-adquirir:focus-visible {
@@ -303,7 +302,7 @@
     transform: scale(0.95);
   }
 
-  /* Sección conceptos estilo lista vertical */
+    /* Sección conceptos estilo lista vertical */
   #conceptos {
     margin-top: 120px;
     margin-bottom: 120px;
@@ -315,7 +314,7 @@
     text-align: center;
     font-weight: 700;
     font-size: clamp(2rem, 4vw, 2.8rem);
-    color: #0b2545; /* Azul marino */
+    color: #d4af37; /* dorado */
     margin-bottom: 40px;
   }
   .concepto-item {
@@ -323,28 +322,28 @@
     gap: 30px;
     margin-bottom: 64px;
     align-items: center;
-    background: #fff8cc; /* Amarillo suave */
-    border: 3px solid #ffd500; /* Amarillo */
+    background: #e0f7ff; /* celeste claro */
+    border: 3px solid #00aaff; /* celeste */
     border-radius: 18px;
     padding: 24px 28px;
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 170, 255, 0.1);
     transition: box-shadow 0.3s ease;
   }
   .concepto-item:hover {
-    box-shadow: 0 14px 45px rgba(212, 175, 55, 0.35);
+    box-shadow: 0 14px 45px rgba(212,175,55,0.25); /* dorado */
   }
   .concepto-item img {
     width: 260px;
     height: 160px;
     object-fit: cover;
     border-radius: 14px;
-    border: 2px solid #0b2545; /* Azul marino */
-    box-shadow: 0 4px 18px rgba(11, 37, 69, 0.3);
+    border: 2px solid #00aaff; /* celeste */
+    box-shadow: 0 4px 18px rgba(0, 170, 255, 0.3);
     user-select: none;
   }
   .concepto-texto {
     flex: 1;
-    color: #0b2545; /* Azul marino */
+    color: #00aaff; /* celeste */
     font-size: clamp(1rem, 2vw, 1.15rem);
     line-height: 1.5;
     font-weight: 500;
@@ -369,12 +368,12 @@
     text-align: center;
     font-weight: 700;
     font-size: clamp(2rem, 4vw, 2.8rem);
-    color: #0b2545; /* Azul marino */
+    color: #d4af37; /* dorado */
     margin-bottom: 40px;
   }
   #beneficios ul {
     list-style-type: disc;
-    color: #0b2545; /* Azul marino */
+    color: #00aaff; /* celeste */
     font-size: clamp(1.1rem, 2vw, 1.25rem);
     line-height: 1.7;
     padding-left: 1.6rem;
@@ -388,13 +387,13 @@
   footer {
     position: fixed;
     bottom: 0; left: 0; right: 0;
-    background-color: #0b2545; /* Azul marino */
-    color: #fff;
+    background-color: #00aaff; /* celeste */
+    color: #d4af37; /* dorado */
     font-weight: 500;
     font-size: 1rem;
     text-align: center;
     padding: 14px 20px;
-    box-shadow: 0 -3px 10px rgba(11, 37, 69, 0.7);
+    box-shadow: 0 -3px 10px rgba(0, 170, 255, 0.7);
     user-select: none;
     z-index: 9999;
     display: flex;
@@ -404,7 +403,7 @@
   }
 
   footer span, footer a {
-    color: #fff8a1; /* Amarillo claro */
+    color: #ffec99; /* dorado más claro */
     text-decoration: none;
     transition: color 0.3s ease;
     display: flex;
@@ -415,7 +414,7 @@
 
   footer a:hover,
   footer a:focus {
-    color: #ffd500; /* Amarillo */
+    color: #fff9e6;
     outline: none;
   }
 
@@ -515,96 +514,89 @@
 </nav>
 
 <main>
-  <header id="inicio" tabindex="0" aria-label="Introducción a EducaNIC">
-    <h1>EducaNIC</h1>
-    <h2>¿Quiénes somos?</h2>
-    <p aria-label="Descripción de EducaNIC">
-      Somos EducaNIC, una plataforma educativa dedicada a ofrecer cursos de alta calidad que te ayudarán a desarrollar tus habilidades y alcanzar tus metas. Aprende con nosotros y crece profesionalmente.
-    </p>
-  </header>
+  <section id="conceptos" tabindex="0" aria-label="Conceptos de los cursos">
+    <h2>Conceptos</h2>
 
-  <section class="cursos-grid" aria-label="Listado de cursos disponibles">
-    <article class="curso-card" tabindex="0">
-      <img src="https://i.ibb.co/Fw8Nrpr/curso1.png" alt="Curso de Programación Básica" loading="lazy" />
-      <h3>Programación Básica</h3>
-      <button class="btn-adquirir" aria-label="Adquirir curso de Programación Básica">
-        Adquirir
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M4 12h16M14 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
+    <article class="concepto-item" aria-labelledby="concepto-ingles-titulo">
+      <img src="ingles.jpg" alt="Curso de Inglés básico" />
+      <div class="concepto-texto">
+        <strong id="concepto-ingles-titulo">Curso de Inglés</strong>
+        <p>Aprende el idioma universal con nuestro Curso de Inglés básico. Desde el abecedario, vocabulario esencial, frases de saludo y despedida, hasta estructuras gramaticales básicas para comunicarte en situaciones cotidianas.</p>
+      </div>
     </article>
 
-    <article class="curso-card" tabindex="0">
-      <img src="https://i.ibb.co/qj4RgCq/curso2.png" alt="Curso de Diseño Gráfico" loading="lazy" />
-      <h3>Diseño Gráfico</h3>
-      <button class="btn-adquirir" aria-label="Adquirir curso de Diseño Gráfico">
-        Adquirir
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M4 12h16M14 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
+    <article class="concepto-item" aria-labelledby="concepto-computacion-titulo">
+      <img src="computacion.jpg" alt="Curso de Computación" />
+      <div class="concepto-texto">
+        <strong id="concepto-computacion-titulo">Curso de Computación</strong>
+        <p>Desarrolla habilidades fundamentales en el manejo de computadoras, sistemas operativos, procesadores de texto y hojas de cálculo, para destacar en el mundo digital actual.</p>
+      </div>
     </article>
 
-    <article class="curso-card" tabindex="0">
-      <img src="https://i.ibb.co/g3g5FcW/curso3.png" alt="Curso de Marketing Digital" loading="lazy" />
-      <h3>Marketing Digital</h3>
-      <button class="btn-adquirir" aria-label="Adquirir curso de Marketing Digital">
-        Adquirir
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M4 12h16M14 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
+    <article class="concepto-item" aria-labelledby="concepto-diseno-titulo">
+      <img src="diseno.jpg" alt="Curso de Diseño gráfico" />
+      <div class="concepto-texto">
+        <strong id="concepto-diseno-titulo">Curso de Diseño gráfico</strong>
+        <p>Explora la creatividad y aprende a utilizar herramientas de diseño para crear imágenes, logos, y contenido visual impactante y profesional.</p>
+      </div>
+    </article>
+
+    <article class="concepto-item" aria-labelledby="concepto-edicion-titulo">
+      <img src="edicion.jpg" alt="Curso de Edición de videos" />
+      <div class="concepto-texto">
+        <strong id="concepto-edicion-titulo">Curso de Edición de videos</strong>
+        <p>Aprende a editar videos con técnicas profesionales, desde cortes básicos hasta efectos especiales, para crear contenido audiovisual de calidad.</p>
+      </div>
+    </article>
+
+    <article class="concepto-item" aria-labelledby="concepto-cocina-titulo">
+      <img src="cocina.jpg" alt="Curso de Cocina" />
+      <div class="concepto-texto">
+        <strong id="concepto-cocina-titulo">Curso de Cocina</strong>
+        <p>Domina recetas fáciles y deliciosas, técnicas culinarias básicas, y aprende a preparar platillos variados que sorprenderán a todos.</p>
+      </div>
+    </article>
+
+    <article class="concepto-item" aria-labelledby="concepto-baile-titulo">
+      <img src="baile.jpg" alt="Curso de Baile" />
+      <div class="concepto-texto">
+        <strong id="concepto-baile-titulo">Curso de Baile</strong>
+        <p>Disfruta y mejora tu coordinación con nuestros cursos de baile para principiantes, aprendiendo pasos básicos y ritmos populares.</p>
+      </div>
+    </article>
+
+    <article class="concepto-item" aria-labelledby="concepto-canto-titulo">
+      <img src="canto.jpg" alt="Curso de Canto" />
+      <div class="concepto-texto">
+        <strong id="concepto-canto-titulo">Curso de Canto</strong>
+        <p>Desarrolla tu voz y técnica vocal con ejercicios y teoría para cantar con confianza y expresión.</p>
+      </div>
     </article>
   </section>
 
-  <section id="conceptos" tabindex="0" aria-label="Conceptos clave">
-    <h2>Conceptos Importantes</h2>
-
-    <div class="concepto-item" tabindex="0" role="group" aria-labelledby="concepto1-titulo">
-      <img src="https://i.ibb.co/LtPQbBt/concepto1.png" alt="Ilustración de concepto de innovación" loading="lazy" />
-      <div class="concepto-texto">
-        <strong id="concepto1-titulo">Innovación Continua</strong>
-        Entender la importancia de innovar constantemente para mantenerse relevante en el mundo tecnológico actual es fundamental para cualquier profesional.
-      </div>
-    </div>
-
-    <div class="concepto-item" tabindex="0" role="group" aria-labelledby="concepto2-titulo">
-      <img src="https://i.ibb.co/Ns6LGHZ/concepto2.png" alt="Ilustración de concepto de colaboración" loading="lazy" />
-      <div class="concepto-texto">
-        <strong id="concepto2-titulo">Colaboración Efectiva</strong>
-        Trabajar en equipo con comunicación clara y objetivos comunes potencia la productividad y la calidad del trabajo final.
-      </div>
-    </div>
-
-    <div class="concepto-item" tabindex="0" role="group" aria-labelledby="concepto3-titulo">
-      <img src="https://i.ibb.co/jz2cZ5L/concepto3.png" alt="Ilustración de concepto de desarrollo personal" loading="lazy" />
-      <div class="concepto-texto">
-        <strong id="concepto3-titulo">Desarrollo Personal</strong>
-        El crecimiento continuo a nivel personal y profesional es clave para alcanzar el éxito y la satisfacción en la vida laboral.
-      </div>
-    </div>
-  </section>
-
-  <section id="beneficios" tabindex="0" aria-label="Beneficios de EducaNIC">
-    <h2>Beneficios de Estudiar con Nosotros</h2>
+  <section id="beneficios" tabindex="0" aria-label="Beneficios de estudiar con EducaNIC">
+    <h2>Beneficios</h2>
     <ul>
-      <li>Acceso a materiales actualizados y de alta calidad.</li>
-      <li>Instructores certificados y con experiencia real.</li>
-      <li>Flexibilidad para aprender a tu propio ritmo.</li>
-      <li>Soporte y comunidad para resolver tus dudas.</li>
-      <li>Certificación reconocida que impulsa tu carrera.</li>
+      <li>NOS ACOMODAMOS A TU HORARIO</li>
+      <li>SESIÓN PSICOLÓGICA GRATIS</li>
+      <li>DOCENTES CALIFICADOS</li>
+      <li>PEDAGOGÍA EXTRAORDINARIA</li>
+      <li>PROMOCIONES Y BECAS</li>
     </ul>
   </section>
 </main>
 
-<footer role="contentinfo" aria-label="Pie de página con contacto y redes sociales">
-  <span>© 2025 EducaNIC</span>
-  <a href="mailto:contacto@educanic.com" aria-label="Enviar correo electrónico a contacto@educanic.com">contacto@educanic.com</a>
-  <a href="https://facebook.com/educanic" target="_blank" rel="noopener" aria-label="Facebook de EducaNIC">Facebook</a>
-  <a href="https://instagram.com/educanic" target="_blank" rel="noopener" aria-label="Instagram de EducaNIC">Instagram</a>
+<footer role="contentinfo" aria-label="Información de contacto y derechos reservados">
+  <span>📞 
+    <a href="https://wa.me/50581294177" target="_blank" rel="noopener" aria-label="Enviar mensaje WhatsApp al número 8129-4177">8129-4177</a>
+  </span>
+  <span>✉️ 
+    <a href="mailto:jackarauz2008@gmail.com" aria-label="Enviar correo electrónico a jackarauz2008@gmail.com">jackarauz2008@gmail.com</a>
+  </span>
+  <span>© EducaNIC - 2025. Todos los derechos reservados.</span>
 </footer>
 
 </body>
 </html>
+
 
