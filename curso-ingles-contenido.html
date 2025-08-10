@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contenido Curso de Inglés - EducaNIC</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: #f9f9f9;
+      color: #003366;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background-color: #003366;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 10px 15px;
+      background-color: #0055aa;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+      cursor: pointer;
+      user-select: none;
+    }
+    header a:hover {
+      background-color: #0077cc;
+    }
+    main {
+      flex: 1;
+      padding: 40px 20px 80px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+    main h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #003366;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+      animation: fadeIn 1s ease forwards;
+    }
+    .opciones-container {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 600px;
+    }
+    .opcion {
+      background-color: #0055aa;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+      padding: 25px 40px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,85,170,0.4);
+      user-select: none;
+      transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+      flex: 1 1 250px;
+      max-width: 280px;
+    }
+    .opcion:hover {
+      background-color: #0077cc;
+      box-shadow: 0 8px 25px rgba(0,119,204,0.6);
+      transform: translateY(-6px);
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      position: sticky;
+      bottom: 0;
+    }
+    footer a {
+      color: #00ccff;
+      text-decoration: none;
+      user-select: text;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 600px) {
+      main h1 {
+        font-size: 2rem;
+      }
+      .opciones-container {
+        gap: 25px;
+      }
+      .opcion {
+        font-size: 1.3rem;
+        padding: 20px 25px;
+        max-width: 100%;
+        flex: 1 1 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header role="banner">
+    <a href="index.html" aria-label="Volver a la página de inicio">Inicio</a>
+  </header>
+
+  <main role="main">
+    <h1 tabindex="0">BIENVENIDO ESTIMADO USUARIO</h1>
+
+    <div class="opciones-container" role="list">
+      <div class="opcion" role="listitem" tabindex="0" onclick="alert('Aquí irán las actividades pronto')"
+           onkeypress="if(event.key==='Enter') alert('Aquí irán las actividades pronto')"
+           aria-label="Ver actividades del curso">
+        Actividades
+      </div>
+      <div class="opcion" role="listitem" tabindex="0" onclick="alert('Aquí irán los folletos de estudio pronto')"
+           onkeypress="if(event.key==='Enter') alert('Aquí irán los folletos de estudio pronto')"
+           aria-label="Ver folletos de estudio">
+        Folletos de estudio
+      </div>
+    </div>
+  </main>
+
+  <footer role="contentinfo" aria-label="Información de contacto y derechos reservados">
+    📞 <a href="https://wa.me/50581294177" target="_blank" rel="noopener">8129-4177</a> | 
+    📧 <a href="mailto:jackarauz2008@gmail.com">jackarauz2008@gmail.com</a> <br />
+    EDUCANIC - 2025 &copy; Todos los derechos reservados
+  </footer>
+
+</body>
+</html>
