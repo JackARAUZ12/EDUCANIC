@@ -6,16 +6,18 @@
 <title>Fundamentos del Inglés - Educanic</title>
 <style>
   body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
-    background-color: #fff;
+    background-color: #fff9f3;
     color: #333;
+    overflow-x: hidden;
   }
   header {
-    background-color: #ff6600;
+    background: linear-gradient(90deg, #ff6600, #ff8800);
     color: white;
     padding: 15px;
     text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
   }
   header a {
     color: white;
@@ -29,22 +31,27 @@
     color: #ff6600;
     text-align: center;
     margin: 20px 0;
+    animation: fadeInDown 1s ease;
   }
   .tema {
-    background-color: #fff;
+    background-color: white;
     border: 3px solid #ff6600;
     border-radius: 10px;
     padding: 15px;
     margin: 20px auto;
     max-width: 600px;
-    transition: opacity 0.3s ease;
+    transition: all 0.5s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
   }
   .tema.locked {
-    opacity: 0.4;
-    pointer-events: none;
+    opacity: 0.3;
+    transform: scale(0.98);
+    filter: grayscale(70%);
   }
   .tema.unlocked {
     opacity: 1;
+    transform: scale(1);
+    filter: none;
   }
   .tema h2 {
     margin-top: 0;
@@ -65,26 +72,52 @@
     background-color: #ff6600;
     color: white;
     cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
   }
   button:hover {
     background-color: #e65c00;
+    transform: scale(1.05);
   }
+  /* Notificaciones */
   #notification {
     position: fixed;
-    top: 10px;
-    right: 10px;
-    background: #ff6600;
+    top: 20px;
+    right: -350px;
+    min-width: 250px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: bold;
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 9999;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: right 0.5s ease, opacity 0.5s ease;
   }
   #notification.show {
+    right: 20px;
     opacity: 1;
   }
+  #notification.success {
+    background: linear-gradient(90deg, #00b09b, #96c93d);
+  }
+  #notification.error {
+    background: linear-gradient(90deg, #ff5f6d, #ffc371);
+  }
+  /* Animación desbloqueo */
+  .unlock-animation {
+    animation: unlockPulse 1s ease forwards;
+  }
+  @keyframes unlockPulse {
+    0% { transform: scale(0.9); box-shadow: 0 0 0 rgba(255,165,0,0); }
+    50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(255,165,0,0.8); }
+    100% { transform: scale(1); box-shadow: 0 0 0 rgba(255,165,0,0); }
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
   footer {
-    background-color: #ff6600;
+    background: linear-gradient(90deg, #ff6600, #ff8800);
     color: white;
     padding: 15px;
     text-align: center;
@@ -208,29 +241,37 @@
   const temas = document.querySelectorAll('.tema');
   const notification = document.getElementById('notification');
 
+  const frasesMotivadoras = [
+    "¡Increíble! 💪 Vas como un cohete 🚀",
+    "¡Perfecto! 🏆 A por el siguiente",
+    "¡Excelente trabajo! 🌟",
+    "¡Eres imparable! 🔥",
+    "¡Wow! Así se hace 👏"
+  ];
+
   const progresoKey = 'eduCanicFundamentosProgreso';
   let progreso = JSON.parse(localStorage.getItem(progresoKey)) || { 1: true };
 
-  function showNotification(msg) {
+  function showNotification(msg, type="success") {
     notification.textContent = msg;
-    notification.classList.add('show');
-    setTimeout(() => notification.classList.remove('show'), 3000);
+    notification.className = type;
+    notification.classList.add('show', type);
+    setTimeout(() => {
+      notification.classList.remove('show');
+    }, 3000);
   }
 
   function actualizarTemas() {
     temas.forEach(tema => {
       const n = tema.dataset.tema;
       const form = tema.querySelector('form');
-
       if (progreso[n]) {
         tema.classList.add('unlocked');
         tema.classList.remove('locked');
-        tema.setAttribute('tabindex', '0');
         if (form) form.querySelectorAll('input, button, select').forEach(e => e.disabled = false);
       } else {
         tema.classList.add('locked');
         tema.classList.remove('unlocked');
-        tema.removeAttribute('tabindex');
         if (form) form.querySelectorAll('input, button, select').forEach(e => e.disabled = true);
       }
     });
@@ -239,18 +280,15 @@
   function marcarTemaCompleto(n) {
     progreso[n] = true;
     localStorage.setItem(progresoKey, JSON.stringify(progreso));
-
     const siguienteTema = parseInt(n) + 1;
     const siguiente = document.querySelector(`.tema[data-tema="${siguienteTema}"]`);
-    if (siguiente) {
-      siguiente.classList.add('desbloqueando');
-      setTimeout(() => {
-        siguiente.classList.remove('desbloqueando');
-        progreso[siguienteTema] = true;
-        localStorage.setItem(progresoKey, JSON.stringify(progreso));
-        actualizarTemas();
-      }, 800);
+    if (siguiente && !progreso[siguienteTema]) {
+      progreso[siguienteTema] = true;
+      localStorage.setItem(progresoKey, JSON.stringify(progreso));
+      siguiente.classList.add('unlock-animation');
+      setTimeout(() => siguiente.classList.remove('unlock-animation'), 1000);
     }
+    actualizarTemas();
   }
 
   temas.forEach(tema => {
@@ -260,13 +298,11 @@
       form.addEventListener('submit', e => {
         e.preventDefault();
         if (!progreso[n]) {
-          showNotification('Debes completar el tema anterior para desbloquear este.');
+          showNotification('⚠️ Debes completar el tema anterior primero.', "error");
           return;
         }
 
         let correcto = false;
-
-        // Validación específica para cada tema
         if (n === "1") {
           const vals = [...form.querySelectorAll('select')].map(s => s.value.trim().toLowerCase());
           correcto = vals[0] === "ei" && vals[1] === "bi" && vals[2] === "si";
@@ -286,10 +322,11 @@
         }
 
         if (correcto) {
-          showNotification('¡Correcto! Tema completado.');
+          const frase = frasesMotivadoras[Math.floor(Math.random() * frasesMotivadoras.length)];
+          showNotification(frase, "success");
           marcarTemaCompleto(n);
         } else {
-          showNotification('Respuesta incorrecta. Intenta nuevamente.');
+          showNotification('❌ Respuesta incorrecta, inténtalo otra vez 💡', "error");
         }
       });
     }
