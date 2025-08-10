@@ -1,350 +1,805 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Fundamentos del Inglés - EducaNIC</title>
-<style>
-  /* Reset y base */
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  body {
-    background: #fff;
-    color: #ff6600;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  /* Header */
-  header {
-    background: #ff6600;
-    padding: 15px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-  }
-  header a {
-    background: #cc4d00;
-    color: #fff;
-    padding: 10px 18px;
-    border-radius: 6px;
-    font-weight: 700;
-    user-select: none;
-    transition: background-color 0.3s;
-  }
-  header a:hover {
-    background: #ff8533;
-  }
-
-  main {
-    flex: 1;
-    padding: 30px 15px 120px; /* bottom for footer */
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  h1 {
-    font-size: 2.8rem;
-    font-weight: 900;
-    text-align: center;
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 3px rgba(255,102,0,0.4);
-  }
-
-  /* Tema container */
-  .tema {
-    background: #fff7f0;
-    border: 3px solid #ff6600;
-    border-radius: 16px;
-    margin-bottom: 30px;
-    padding: 25px 30px;
-    box-shadow: 0 8px 20px rgba(255,102,0,0.15);
-    transition: box-shadow 0.3s ease;
-  }
-  .tema.unlocked:hover {
-    box-shadow: 0 12px 32px rgba(255,102,0,0.35);
-  }
-  .tema.locked {
-    opacity: 0.45;
-    pointer-events: none;
-    user-select: none;
-  }
-  .tema h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    font-weight: 800;
-  }
-
-  /* Ejercicios */
-  .ejercicio {
-    margin-bottom: 25px;
-  }
-  label {
-    font-weight: 600;
-    display: block;
-    margin-bottom: 8px;
-  }
-  input[type=text] {
-    width: 100%;
-    max-width: 360px;
-    padding: 8px 12px;
-    border: 2px solid #ff6600;
-    border-radius: 8px;
-    font-size: 1rem;
-    color: #ff6600;
-    outline-offset: 2px;
-    outline-color: #ff8533;
-  }
-  input[type=text]:focus {
-    outline-color: #ff8533;
-    box-shadow: 0 0 6px #ff8533;
-  }
-  button.check-btn {
-    background: #ff6600;
-    border: none;
-    color: #fff;
-    font-weight: 700;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    user-select: none;
-    transition: background-color 0.3s;
-    margin-top: 10px;
-  }
-  button.check-btn:hover {
-    background: #ff8533;
-  }
-
-  /* Mensaje */
-  .mensaje {
-    margin-top: 10px;
-    font-weight: 700;
-  }
-  .mensaje.error {
-    color: #cc2200;
-  }
-  .mensaje.success {
-    color: #008833;
-  }
-
-  /* Animación desbloqueo */
-  @keyframes desbloqueo {
-    0% {
-      transform: scale(0.85);
-      opacity: 0.3;
-      border-color: #cc4d00;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fundamentos del Inglés - EducaNIC</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
-    50% {
-      transform: scale(1.05);
-      opacity: 1;
-      border-color: #ff8533;
-      box-shadow: 0 0 20px #ff8533;
+    body {
+      background-color: #fff;
+      color: #ff6600;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-    100% {
-      transform: scale(1);
-      border-color: #ff6600;
-      box-shadow: 0 8px 20px rgba(255,102,0,0.15);
+    header {
+      background-color: #ff6600;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
     }
-  }
+    header a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 10px 18px;
+      background-color: #cc4d00;
+      border-radius: 6px;
+      user-select: none;
+      transition: background-color 0.3s;
+    }
+    header a:hover {
+      background-color: #ff8533;
+    }
 
-  /* Footer */
-  footer {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: #ff6600;
-    color: white;
-    text-align: center;
-    padding: 15px 10px;
-    font-weight: 500;
-    font-size: 0.9rem;
-    user-select: none;
-  }
-  footer a {
-    color: #fff;
-    font-weight: 700;
-  }
-  footer a:hover {
-    text-decoration: underline;
-  }
-
-  /* Responsive */
-  @media (max-width: 600px) {
     main {
-      padding: 20px 12px 120px;
+      flex: 1;
+      padding: 40px 20px 100px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
     }
+
     h1 {
-      font-size: 2rem;
+      text-align: center;
+      font-weight: 900;
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 3px rgba(255,102,0,0.4);
     }
-    .tema h2 {
-      font-size: 1.6rem;
+    h2 {
+      font-weight: 800;
+      font-size: 1.9rem;
+      margin-bottom: 20px;
+      text-align: center;
     }
-  }
-</style>
+
+    .tema {
+      border: 3px solid #ff6600;
+      border-radius: 18px;
+      background: #fff6eb;
+      padding: 24px 28px;
+      box-shadow: 0 8px 25px rgba(255,102,0,0.15);
+      user-select: none;
+      transition: box-shadow 0.3s ease, background-color 0.3s ease;
+      position: relative;
+    }
+    .tema.locked {
+      background: #fff9f5;
+      border-color: #f5c1a0;
+      color: #cc4d00;
+      filter: grayscale(0.7);
+      cursor: not-allowed;
+    }
+    .tema.locked:hover {
+      box-shadow: none;
+    }
+    .tema.unlocked {
+      background: #fff6eb;
+      border-color: #ff6600;
+      filter: none;
+      cursor: auto;
+    }
+
+    .tema-header {
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+      color: #cc4d00;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lock-icon {
+      font-size: 1.4rem;
+      color: #cc4d00;
+    }
+
+    /* Ejercicios */
+
+    .ejercicio {
+      margin-top: 10px;
+      user-select: none;
+    }
+
+    /* Ejercicio 1 - unir letras con pronunciación */
+    .unir-container {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 600px;
+      margin: 0 auto;
+      user-select: none;
+    }
+    .letras, .pronunciaciones {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .letras div, .pronunciaciones div {
+      background: #ff8533;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.4rem;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 133, 51, 0.5);
+      transition: background-color 0.3s;
+      user-select: none;
+    }
+    .letras div.selected, .pronunciaciones div.selected {
+      background-color: #cc4d00;
+      box-shadow: 0 0 15px #cc4d00;
+      color: #fff;
+    }
+
+    /* Líneas de conexión SVG */
+    svg {
+      position: absolute;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    /* Ejercicio 5 - pronombres personales */
+    .pronombres-container {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      user-select: none;
+    }
+    .pronombre-pregunta {
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+      color: #cc4d00;
+    }
+    .pronombre-opciones {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .pronombre-opcion {
+      background-color: #ff8533;
+      color: white;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255,133,51,0.6);
+      user-select: none;
+      transition: background-color 0.3s;
+    }
+    .pronombre-opcion:hover {
+      background-color: #cc4d00;
+    }
+    .pronombre-opcion.correct {
+      background-color: #4CAF50 !important;
+      box-shadow: 0 5px 15px rgba(76,175,80,0.7) !important;
+      cursor: default;
+    }
+    .pronombre-opcion.incorrect {
+      background-color: #e53935 !important;
+      box-shadow: 0 5px 15px rgba(229,57,53,0.7) !important;
+      cursor: default;
+    }
+
+    /* Botón enviar */
+    .btn-enviar {
+      margin-top: 18px;
+      padding: 14px 26px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: white;
+      background-color: #ff6600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      user-select: none;
+      box-shadow: 0 5px 15px rgba(255,102,0,0.5);
+      transition: background-color 0.3s;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-enviar:hover:not(:disabled) {
+      background-color: #cc4d00;
+    }
+    .btn-enviar:disabled {
+      background-color: #f5c1a0;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    /* Notificaciones */
+    #notification {
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ff6600;
+      color: white;
+      padding: 18px 30px;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      box-shadow: 0 5px 25px rgba(255,102,0,0.7);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 1000;
+      user-select: none;
+    }
+    #notification.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Animación desbloqueo */
+    @keyframes desbloqueo {
+      0% { box-shadow: 0 0 0px #4CAF50;}
+      50% { box-shadow: 0 0 20px 8px #4CAF50; }
+      100% { box-shadow: 0 0 0px #4CAF50; }
+    }
+    .tema.unlocked.ani-desbloqueo {
+      animation: desbloqueo 1.2s ease forwards;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      main {
+        padding: 20px 15px 100px 15px;
+      }
+      .unir-container {
+        gap: 16px;
+      }
+      .letras div, .pronunciaciones div {
+        font-size: 1.1rem;
+        padding: 10px 14px;
+      }
+      .pronombre-opcion {
+        font-size: 1rem;
+        padding: 12px 16px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header role="banner">
-  <a href="index.html" aria-label="Volver a la página de inicio">Inicio</a>
-</header>
+  <header role="banner">
+    <a href="index.html" aria-label="Volver a la página principal">Inicio</a>
+  </header>
 
-<main role="main" aria-live="polite">
-  <h1 tabindex="0">Fundamentos del Inglés</h1>
+  <main role="main">
+    <h1 tabindex="0">Fundamentos del Inglés</h1>
 
-  <!-- Tema 1 -->
-  <section class="tema unlocked" data-tema="1" aria-label="Tema 1: El abecedario">
-    <h2>1. El abecedario</h2>
-    <div class="ejercicio" id="ej1">
-      <label for="inputAbecedario">Escribe las primeras 5 letras del abecedario separadas por espacios (ejemplo: a b c d e)</label>
-      <input type="text" id="inputAbecedario" aria-describedby="ayudaAbecedario" autocomplete="off" />
-      <button class="check-btn" aria-controls="inputAbecedario" onclick="checkEjercicio1()">Verificar</button>
-      <div class="mensaje" id="msgEj1" role="alert" aria-live="assertive"></div>
-    </div>
-  </section>
+    <!-- Tema 1: El abecedario -->
+    <section class="tema unlocked" data-tema="1" aria-label="Tema 1: El abecedario" tabindex="0">
+      <div class="tema-header">1. El abecedario</div>
+      <p>Une cada letra con su pronunciación correcta escrita. Haz clic primero en una letra, luego en la pronunciación correspondiente.</p>
 
-  <!-- Tema 2 -->
-  <section class="tema locked" data-tema="2" aria-label="Tema 2: Saludos y despedidas" tabindex="-1" aria-disabled="true" aria-hidden="true">
-    <h2>2. Saludos y despedidas</h2>
-    <div class="ejercicio" id="ej2">
-      <label for="inputSaludo">Completa la frase: "Hello, how ____ you?"</label>
-      <input type="text" id="inputSaludo" autocomplete="off" />
-      <button class="check-btn" onclick="checkEjercicio2()">Verificar</button>
-      <div class="mensaje" id="msgEj2" role="alert" aria-live="assertive"></div>
-    </div>
-  </section>
+      <div class="unir-container" aria-live="polite" aria-atomic="true">
+        <div class="letras" role="list" aria-label="Letras del abecedario">
+          <!-- Letras generadas en JS -->
+        </div>
+        <svg width="0" height="0"></svg>
+        <div class="pronunciaciones" role="list" aria-label="Pronunciaciones de las letras">
+          <!-- Pronunciaciones generadas en JS -->
+        </div>
+      </div>
 
-  <!-- Tema 3 -->
-  <section class="tema locked" data-tema="3" aria-label="Tema 3: Presentarte y conocer a otros" tabindex="-1" aria-disabled="true" aria-hidden="true">
-    <h2>3. Presentarte y conocer a otros</h2>
-    <div class="ejercicio" id="ej3">
-      <label for="inputPresentacion">Completa la frase: "My name ____ John."</label>
-      <input type="text" id="inputPresentacion" autocomplete="off" />
-      <button class="check-btn" onclick="checkEjercicio3()">Verificar</button>
-      <div class="mensaje" id="msgEj3" role="alert" aria-live="assertive"></div>
-    </div>
-  </section>
+      <button class="btn-enviar" disabled aria-disabled="true" aria-label="Enviar respuestas para verificar">Enviar respuestas</button>
+    </section>
 
-  <!-- Tema 4 -->
-  <section class="tema locked" data-tema="4" aria-label="Tema 4: Pronombres personales" tabindex="-1" aria-disabled="true" aria-hidden="true">
-    <h2>4. Pronombres personales</h2>
-    <div class="ejercicio" id="ej4">
-      <label for="inputPronombre">Selecciona el pronombre adecuado para "Sara and I":</label>
-      <select id="inputPronombre" aria-label="Seleccionar pronombre">
-        <option value="">--Seleccione--</option>
-        <option value="we">We</option>
-        <option value="they">They</option>
-        <option value="you">You</option>
-      </select>
-      <button class="check-btn" onclick="checkEjercicio4()">Verificar</button>
-      <div class="mensaje" id="msgEj4" role="alert" aria-live="assertive"></div>
-    </div>
-  </section>
+    <!-- Tema 2: Pronunciación de vocales y consonantes -->
+    <section class="tema locked" data-tema="2" aria-label="Tema 2: Pronunciación de vocales y consonantes" tabindex="-1">
+      <div class="tema-header"><span class="lock-icon" aria-hidden="true">🔒</span> 2. Pronunciación de vocales y consonantes</div>
+      <p>Ejercicio: Completa las palabras con la vocal o consonante correcta.</p>
+      <form class="ejercicio" aria-label="Ejercicio de completar palabras" novalidate>
+        <div>
+          <label for="palabra1">C_t (Cat)</label><br/>
+          <input type="text" id="palabra1" name="palabra1" maxlength="1" pattern="[a-zA-Z]" autocomplete="off" aria-required="true" disabled />
+        </div>
+        <div style="margin-top:15px;">
+          <label for="palabra2">B_t (Bat)</label><br/>
+          <input type="text" id="palabra2" name="palabra2" maxlength="1" pattern="[a-zA-Z]" autocomplete="off" aria-required="true" disabled />
+        </div>
+        <button type="submit" class="btn-enviar" disabled aria-disabled="true">Enviar respuestas</button>
+      </form>
+    </section>
 
-  <!-- Tema 5 -->
-  <section class="tema locked" data-tema="5" aria-label="Tema 5: Pronunciación de vocales y consonantes" tabindex="-1" aria-disabled="true" aria-hidden="true">
-    <h2>5. Pronunciación de vocales y consonantes</h2>
-    <div class="ejercicio" id="ej5">
-      <label for="inputVocales">Escribe las vocales en orden (a, e, i, o, u) separadas por comas:</label>
-      <input type="text" id="inputVocales" autocomplete="off" />
-      <button class="check-btn" onclick="checkEjercicio5()">Verificar</button>
-      <div class="mensaje" id="msgEj5" role="alert" aria-live="assertive"></div>
-    </div>
-  </section>
+    <!-- Tema 3: Saludos y despedidas -->
+    <section class="tema locked" data-tema="3" aria-label="Tema 3: Saludos y despedidas" tabindex="-1">
+      <div class="tema-header"><span class="lock-icon" aria-hidden="true">🔒</span> 3. Saludos y despedidas</div>
+      <p>Ejercicio: Ordena las palabras para formar saludos o despedidas correctas.</p>
+      <div class="ejercicio" aria-label="Ejercicio ordenar palabras">
+        <p><strong>Ejemplo:</strong> Ordena para formar "Good morning"</p>
+        <div class="ordenar-palabras" aria-live="polite" aria-atomic="true" tabindex="0">
+          <!-- palabras generadas en JS -->
+        </div>
+        <button class="btn-enviar" disabled aria-disabled="true" aria-label="Enviar respuesta">Enviar respuesta</button>
+      </div>
+    </section>
 
-</main>
+    <!-- Tema 4: Presentarte y conocer a otros -->
+    <section class="tema locked" data-tema="4" aria-label="Tema 4: Presentarte y conocer a otros" tabindex="-1">
+      <div class="tema-header"><span class="lock-icon" aria-hidden="true">🔒</span> 4. Presentarte y conocer a otros</div>
+      <p>Ejercicio: Completa las frases con las palabras correctas.</p>
+      <form class="ejercicio" aria-label="Ejercicio completar frases" novalidate>
+        <div>
+          <label for="frase1">Hello, my ___ is John.</label><br/>
+          <input type="text" id="frase1" name="frase1" autocomplete="off" aria-required="true" disabled />
+        </div>
+        <div style="margin-top:15px;">
+          <label for="frase2">Nice to ___ you.</label><br/>
+          <input type="text" id="frase2" name="frase2" autocomplete="off" aria-required="true" disabled />
+        </div>
+        <button type="submit" class="btn-enviar" disabled aria-disabled="true">Enviar respuestas</button>
+      </form>
+    </section>
 
-<footer role="contentinfo" aria-label="Información de contacto y derechos reservados">
-  📞 <a href="https://wa.me/50581294177" target="_blank" rel="noopener" aria-label="Enviar mensaje WhatsApp">8129-4177</a> | 
-  📧 <a href="mailto:jackarauz2008@gmail.com" aria-label="Enviar correo electrónico">jackarauz2008@gmail.com</a><br />
-  EDUCANIC - 2025 © Todos los derechos reservados
-</footer>
+    <!-- Tema 5: Pronombres personales -->
+    <section class="tema locked" data-tema="5" aria-label="Tema 5: Pronombres personales" tabindex="-1">
+      <div class="tema-header"><span class="lock-icon" aria-hidden="true">🔒</span> 5. Pronombres personales</div>
+      <p>Ejercicio: Selecciona el pronombre correcto para cada imagen o persona.</p>
+      <div class="pronombres-container" aria-live="polite" aria-atomic="true">
+        <div>
+          <div class="pronombre-pregunta">1. Persona que habla (yo)</div>
+          <div class="pronombre-opciones" role="list">
+            <div class="pronombre-opcion" role="listitem" tabindex="0" data-answer="correct">I</div>
+            <div class="pronombre-opcion" role="listitem" tabindex="0" data-answer="wrong">You</div>
+            <div class="pronombre-opcion" role="listitem" tabindex="0" data-answer="wrong">He</div>
+          </div>
+        </div>
+        <div>
+          <div class="pronombre-pregunta">2. Persona a quien hablas (tú)</div>
+          <div class="pronombre-opciones" role="list">
+            <div class="pronombre-opcion" role="listitem" tabindex="0" data-answer="wrong">He</div>
+            <div class="pronombre-opcion" role="listitem" tabindex="0" data-answer="correct">You</div>
+            <div class="pronombre-opcion" role="listitem" tabindex="0" data-answer="wrong">We</div>
+          </div>
+        </div>
+        <div>
+          <div class="pronombre-pregunta">3. Tercera persona singular masculino (él)</div>
+          <div class="pronombre-opciones" role="list">
+            <div class="pronombre-opcion" role="listitem" tabindex="0" data-answer="wrong">They</div>
+            <div class="pronombre-opcion" role="listitem" tabindex="0" data-answer="correct">He</div>
+            <div class="pronombre-opcion" role="listitem" tabindex="0" data-answer="wrong">She</div>
+          </div>
+        </div>
+        <button class="btn-enviar" disabled aria-disabled="true" aria-label="Enviar respuestas">Enviar respuestas</button>
+      </div>
+    </section>
+  </main>
 
-<script>
-  // Funciones para validar ejercicios
-  function checkEjercicio1() {
-    const input = document.getElementById('inputAbecedario').value.trim().toLowerCase();
-    const msg = document.getElementById('msgEj1');
-    if (input === 'a b c d e') {
-      msg.textContent = '¡Correcto! Tema 1 completado.';
-      msg.className = 'mensaje success';
-      desbloquearTema(2);
-    } else {
-      msg.textContent = 'Incorrecto, intenta de nuevo.';
-      msg.className = 'mensaje error';
+  <footer role="contentinfo" aria-label="Información de contacto y derechos reservados">
+    📞 <a href="https://wa.me/50581294177" target="_blank" rel="noopener" aria-label="Whatsapp 8129-4177">8129-4177</a> | 
+    📧 <a href="mailto:jackarauz2008@gmail.com" aria-label="Correo electrónico jackarauz2008@gmail.com">jackarauz2008@gmail.com</a> <br />
+    EDUCANIC - 2025 &copy; Todos los derechos reservados
+  </footer>
+
+  <script>
+  // --- Variables globales y almacenamiento ---
+  const temas = document.querySelectorAll('.tema');
+  const notification = document.getElementById('notification');
+  const progresoKey = 'eduCanicFundamentosProgreso';
+  let progreso = JSON.parse(localStorage.getItem(progresoKey)) || { 1: true }; // Tema 1 desbloqueado por defecto
+
+  function showNotification(msg) {
+    notification.textContent = msg;
+    notification.classList.add('show');
+    setTimeout(() => notification.classList.remove('show'), 3000);
+  }
+
+  function guardarProgreso() {
+    localStorage.setItem(progresoKey, JSON.stringify(progreso));
+  }
+
+  // --- Actualizar vista de temas (bloqueado / desbloqueado) ---
+  function actualizarTemas() {
+    temas.forEach(tema => {
+      const n = tema.dataset.tema;
+      const isUnlocked = !!progreso[n];
+
+      if (isUnlocked) {
+        tema.classList.add('unlocked');
+        tema.classList.remove('locked');
+        tema.setAttribute('tabindex', '0');
+
+        // habilitar inputs (pero dejar botones de envío a cargo de la lógica de cada ejercicio)
+        tema.querySelectorAll('input, textarea').forEach(e => e.disabled = false);
+
+        // permitir clics en opciones (pronombres) si existen
+        tema.querySelectorAll('.pronombre-opcion').forEach(e => {
+          e.setAttribute('aria-disabled', 'false');
+          e.tabIndex = 0;
+          e.style.pointerEvents = 'auto';
+        });
+
+      } else {
+        tema.classList.add('locked');
+        tema.classList.remove('unlocked');
+        tema.setAttribute('tabindex', '-1');
+
+        tema.querySelectorAll('input, textarea').forEach(e => e.disabled = true);
+        tema.querySelectorAll('.pronombre-opcion').forEach(e => {
+          e.setAttribute('aria-disabled', 'true');
+          e.tabIndex = -1;
+          e.style.pointerEvents = 'none';
+        });
+      }
+    });
+  }
+
+  // --- Utilidades ---
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
     }
-  }
-  function checkEjercicio2() {
-    const input = document.getElementById('inputSaludo').value.trim().toLowerCase();
-    const msg = document.getElementById('msgEj2');
-    if (input === 'are') {
-      msg.textContent = '¡Correcto! Tema 2 completado.';
-      msg.className = 'mensaje success';
-      desbloquearTema(3);
-    } else {
-      msg.textContent = 'Incorrecto, intenta de nuevo.';
-      msg.className = 'mensaje error';
-    }
-  }
-  function checkEjercicio3() {
-    const input = document.getElementById('inputPresentacion').value.trim().toLowerCase();
-    const msg = document.getElementById('msgEj3');
-    if (input === 'is') {
-      msg.textContent = '¡Correcto! Tema 3 completado.';
-      msg.className = 'mensaje success';
-      desbloquearTema(4);
-    } else {
-      msg.textContent = 'Incorrecto, intenta de nuevo.';
-      msg.className = 'mensaje error';
-    }
-  }
-  function checkEjercicio4() {
-    const input = document.getElementById('inputPronombre').value;
-    const msg = document.getElementById('msgEj4');
-    if (input === 'we') {
-      msg.textContent = '¡Correcto! Tema 4 completado.';
-      msg.className = 'mensaje success';
-      desbloquearTema(5);
-    } else {
-      msg.textContent = 'Incorrecto, intenta de nuevo.';
-      msg.className = 'mensaje error';
-    }
-  }
-  function checkEjercicio5() {
-    const input = document.getElementById('inputVocales').value.trim().toLowerCase().replace(/\s+/g,'');
-    const msg = document.getElementById('msgEj5');
-    if (input === 'aeiou') {
-      msg.textContent = '¡Correcto! Tema 5 completado.';
-      msg.className = 'mensaje success';
-      // Aquí ya no desbloquea más porque es el último tema
-    } else {
-      msg.textContent = 'Incorrecto, intenta de nuevo.';
-      msg.className = 'mensaje error';
-    }
+    return arr;
   }
 
-  // Función para desbloquear el siguiente tema
-  function desbloquearTema(nroTema) {
-    const tema = document.querySelector(`.tema[data-tema="${nroTema}"]`);
-    if (!tema) return;
-    if (tema.classList.contains('unlocked')) return; // ya desbloqueado
+  // --- Inicialización y lógica Tema 1 (Abecedario: unir letra con pronunciación escrita) ---
+  (function initTema1() {
+    const tema1 = document.querySelector('.tema[data-tema="1"]');
+    if (!tema1) return;
 
-    tema.classList.remove('locked');
-    tema.classList.add('unlocked');
-    tema.style.animation = 'desbloqueo 0.6s ease forwards';
+    const letrasContainer = tema1.querySelector('.letras');
+    const pronContainer = tema1.querySelector('.pronunciaciones');
+    const sendBtn = tema1.querySelector('.btn-enviar');
 
-    // Remover atributos aria de bloqueo
-    tema.removeAttribute('aria-disabled');
-    tema.removeAttribute('aria-hidden');
-    tema.setAttribute('tabindex', '0');
-  }
+    // Datos (letras y pronunciaciones escritas)
+    const letters = ['A','B','C','D','E','F'];
+    const pronMap = { A: 'ei', B: 'bi', C: 'si', D: 'di', E: 'i', F: 'ef' };
+
+    // preparar DOM
+    letrasContainer.innerHTML = '';
+    pronContainer.innerHTML = '';
+
+    const pronList = shuffle(Object.values(pronMap).slice()); // copia y mezcla
+
+    // estado de emparejamientos
+    const matched = {}; // letter -> pron
+    let selectedLetter = null;
+
+    // crear elementos letras
+    letters.forEach((L, idx) => {
+      const div = document.createElement('div');
+      div.textContent = L;
+      div.dataset.letter = L;
+      div.dataset.index = idx;
+      div.classList.add('letra-item');
+      div.addEventListener('click', () => {
+        if (!tema1.classList.contains('unlocked')) { showNotification('Tema bloqueado. Completa el anterior.'); return; }
+        if (div.classList.contains('matched')) return;
+        // seleccionar/deseleccionar
+        if (selectedLetter === div) {
+          div.classList.remove('selected');
+          selectedLetter = null;
+        } else {
+          // deseleccionar cualquier otra
+          letrasContainer.querySelectorAll('div').forEach(d => d.classList.remove('selected'));
+          div.classList.add('selected');
+          selectedLetter = div;
+        }
+      });
+      letrasContainer.appendChild(div);
+    });
+
+    // crear elementos pronunciaciones
+    pronList.forEach((p, idx) => {
+      const div = document.createElement('div');
+      div.textContent = p;
+      div.dataset.pron = p;
+      div.dataset.index = idx;
+      div.classList.add('pron-item');
+      div.addEventListener('click', () => {
+        if (!tema1.classList.contains('unlocked')) { showNotification('Tema bloqueado. Completa el anterior.'); return; }
+        if (!selectedLetter) {
+          showNotification('Selecciona primero una letra.');
+          return;
+        }
+        // si esta pronunciación ya fue emparejada, ignorar
+        if (div.classList.contains('matched')) return;
+
+        const L = selectedLetter.dataset.letter;
+        matched[L] = div.dataset.pron;
+
+        // marcar como emparejados visualmente
+        selectedLetter.classList.add('matched');
+        div.classList.add('matched');
+        selectedLetter.classList.remove('selected');
+        selectedLetter = null;
+
+        // activar botón enviar si todos emparejados
+        if (Object.keys(matched).length === letters.length) {
+          sendBtn.disabled = false;
+          sendBtn.removeAttribute('aria-disabled');
+        }
+      });
+      pronContainer.appendChild(div);
+    });
+
+    // enviar validación Tema 1
+    sendBtn.addEventListener('click', () => {
+      // comprobar que todos emparejados
+      if (Object.keys(matched).length !== letters.length) {
+        showNotification('Completa todos los emparejamientos antes de enviar.');
+        return;
+      }
+      // verificar corrección
+      let allCorrect = true;
+      for (const L of letters) {
+        if (pronMap[L] !== matched[L]) { allCorrect = false; break; }
+      }
+      if (allCorrect) {
+        showNotification('¡Correcto! Desbloqueando siguiente tema...');
+        // desbloquear tema 2
+        progreso[2] = true;
+        guardarProgreso();
+        // animación
+        const next = document.querySelector('.tema[data-tema="2"]');
+        if (next) {
+          next.classList.add('ani-desbloqueo');
+          setTimeout(() => next.classList.remove('ani-desbloqueo'), 1200);
+        }
+        actualizarTemas();
+      } else {
+        showNotification('Algunos emparejamientos son incorrectos. Intenta de nuevo.');
+        // reset visual y estado parcial para volver a intentar
+        Object.keys(matched).forEach(L => {
+          const pron = matched[L];
+          // quitar matched en letra y pron
+          const letraDiv = letrasContainer.querySelector(`div[data-letter="${L}"]`);
+          const pronDiv = pronContainer.querySelector(`div[data-pron="${pron}"]`);
+          if (letraDiv) letraDiv.classList.remove('matched');
+          if (pronDiv) pronDiv.classList.remove('matched');
+        });
+        // reiniciar matched y boton
+        for (const k in matched) delete matched[k];
+        sendBtn.disabled = true;
+        sendBtn.setAttribute('aria-disabled', 'true');
+      }
+    });
+  })();
+
+  // --- Tema 2: completar palabras (C_t, B_t) ---
+  (function initTema2() {
+    const tema2 = document.querySelector('.tema[data-tema="2"]');
+    if (!tema2) return;
+    const form = tema2.querySelector('form');
+    const input1 = tema2.querySelector('#palabra1');
+    const input2 = tema2.querySelector('#palabra2');
+    const sendBtn = tema2.querySelector('button.btn-enviar');
+
+    // activar inputs solo si está desbloqueado (actualizarTemas ya maneja disabled en inputs)
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!progreso[2]) { showNotification('Tema bloqueado. Completa el anterior.'); return; }
+
+      const a1 = (input1.value || '').trim().toLowerCase();
+      const a2 = (input2.value || '').trim().toLowerCase();
+      // respuestas correctas 'a' y 'a' para C_t (cat) y B_t (bat)
+      if (a1 === 'a' && a2 === 'a') {
+        showNotification('¡Correcto! Desbloqueando siguiente tema...');
+        progreso[3] = true;
+        guardarProgreso();
+        const next = document.querySelector('.tema[data-tema="3"]');
+        if (next) { next.classList.add('ani-desbloqueo'); setTimeout(() => next.classList.remove('ani-desbloqueo'), 1200); }
+        actualizarTemas();
+      } else {
+        showNotification('Incorrecto. Intenta de nuevo.');
+      }
+    });
+  })();
+
+  // --- Tema 3: ordenar palabras ---
+  (function initTema3() {
+    const tema3 = document.querySelector('.tema[data-tema="3"]');
+    if (!tema3) return;
+    const container = tema3.querySelector('.ordenar-palabras');
+    const sendBtn = tema3.querySelector('.btn-enviar');
+
+    // Frase objetivo
+    const targetWords = ['Good', 'morning']; // ejemplo
+    // crear botones mezclados
+    function render() {
+      container.innerHTML = '';
+      const shuffled = shuffle(targetWords.slice());
+      shuffled.forEach(word => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'word-btn';
+        btn.textContent = word;
+        btn.style.margin = '6px';
+        btn.style.padding = '10px 14px';
+        btn.style.borderRadius = '8px';
+        btn.style.border = '2px solid #ff6600';
+        btn.style.background = '#fff';
+        btn.style.color = '#ff6600';
+        btn.style.fontWeight = '700';
+        btn.style.cursor = 'pointer';
+        btn.addEventListener('click', () => {
+          if (!progreso[3]) { showNotification('Tema bloqueado. Completa el anterior.'); return; }
+          // al hacer click agregamos palabra a la secuencia si no fue elegida
+          if (btn.dataset.chosen === 'true') return;
+          btn.dataset.chosen = 'true';
+          btn.style.opacity = '0.5';
+          sequence.push(word);
+          renderSequence();
+          if (sequence.length === targetWords.length) sendBtn.disabled = false;
+        });
+        container.appendChild(btn);
+      });
+    }
+
+    const seqContainer = document.createElement('div');
+    seqContainer.style.minHeight = '36px';
+    seqContainer.style.marginTop = '12px';
+    seqContainer.style.display = 'flex';
+    seqContainer.style.gap = '8px';
+    seqContainer.style.justifyContent = 'center';
+    container.parentNode.insertBefore(seqContainer, sendBtn);
+
+    let sequence = [];
+    function renderSequence() {
+      seqContainer.innerHTML = '';
+      sequence.forEach(w => {
+        const s = document.createElement('div');
+        s.textContent = w;
+        s.style.padding = '8px 10px';
+        s.style.borderRadius = '8px';
+        s.style.background = '#ff8533';
+        s.style.color = '#fff';
+        s.style.fontWeight = '700';
+        seqContainer.appendChild(s);
+      });
+    }
+
+    // enviar verificación
+    sendBtn.addEventListener('click', () => {
+      if (!progreso[3]) { showNotification('Tema bloqueado. Completa el anterior.'); return; }
+      if (sequence.length !== targetWords.length) { showNotification('Selecciona la secuencia completa.'); return; }
+      if (sequence.join(' ') === targetWords.join(' ')) {
+        showNotification('¡Correcto! Desbloqueando siguiente tema...');
+        progreso[4] = true;
+        guardarProgreso();
+        const next = document.querySelector('.tema[data-tema="4"]');
+        if (next) { next.classList.add('ani-desbloqueo'); setTimeout(() => next.classList.remove('ani-desbloqueo'), 1200); }
+        actualizarTemas();
+      } else {
+        showNotification('Orden incorrecto. Intenta de nuevo.');
+        // reset
+        sequence = [];
+        container.querySelectorAll('button').forEach(b => { b.dataset.chosen = 'false'; b.style.opacity = '1'; });
+        renderSequence();
+        sendBtn.disabled = true;
+      }
+    });
+
+    // render inicial
+    render();
+  })();
+
+  // --- Tema 4: completar frases (Presentarte) ---
+  (function initTema4() {
+    const tema4 = document.querySelector('.tema[data-tema="4"]');
+    if (!tema4) return;
+    const form = tema4.querySelector('form');
+    const f1 = tema4.querySelector('#frase1');
+    const f2 = tema4.querySelector('#frase2');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!progreso[4]) { showNotification('Tema bloqueado. Completa el anterior.'); return; }
+
+      const a1 = (f1.value || '').trim().toLowerCase();
+      const a2 = (f2.value || '').trim().toLowerCase();
+      // respuestas esperadas: 'name' y 'meet'
+      if (a1 === 'name' && a2 === 'meet') {
+        showNotification('¡Correcto! Desbloqueando siguiente tema...');
+        progreso[5] = true;
+        guardarProgreso();
+        const next = document.querySelector('.tema[data-tema="5"]');
+        if (next) { next.classList.add('ani-desbloqueo'); setTimeout(() => next.classList.remove('ani-desbloqueo'), 1200); }
+        actualizarTemas();
+      } else {
+        showNotification('Incorrecto. Revisa las palabras y vuelve a intentar.');
+      }
+    });
+  })();
+
+  // --- Tema 5: pronombres personales ---
+  (function initTema5() {
+    const tema5 = document.querySelector('.tema[data-tema="5"]');
+    if (!tema5) return;
+    const groups = tema5.querySelectorAll('.pronombre-opciones');
+    const sendBtn = tema5.querySelector('.btn-enviar');
+
+    // estado selección por grupo
+    const seleccion = new Array(groups.length).fill(null);
+
+    groups.forEach((group, gi) => {
+      const options = Array.from(group.querySelectorAll('.pronombre-opcion'));
+      options.forEach(opt => {
+        opt.addEventListener('click', () => {
+          if (!progreso[5]) { showNotification('Tema bloqueado. Completa el anterior.'); return; }
+          // deseleccionar otras opciones del mismo grupo
+          options.forEach(o => o.classList.remove('chosen'));
+          opt.classList.add('chosen');
+          seleccion[gi] = opt; // guardar el elemento seleccionado
+          // habilitar boton enviar cuando todas las preguntas contestadas
+          if (seleccion.every(s => s !== null)) {
+            sendBtn.disabled = false;
+            sendBtn.removeAttribute('aria-disabled');
+          }
+        });
+
+        // accesibilidad teclado
+        opt.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            opt.click();
+          }
+        });
+      });
+    });
+
+    sendBtn.addEventListener('click', () => {
+      if (!progreso[5]) { showNotification('Tema bloqueado. Completa el anterior.'); return; }
+      if (!seleccion.every(s => s !== null)) { showNotification('Contesta todas las preguntas primero.'); return; }
+
+      let allCorrect = true;
+      seleccion.forEach(sel => {
+        const ans = sel.dataset.answer;
+        if (ans === 'correct') {
+          sel.classList.add('correct');
+        } else {
+          sel.classList.add('incorrect');
+          allCorrect = false;
+        }
+        // desactivar para evitar más clicks
+        sel.style.pointerEvents = 'none';
+      });
+
+      if (allCorrect) {
+        showNotification('¡Excelente! Completaste Fundamentos del Inglés.');
+        progreso.completedFundamentos = true;
+        guardarProgreso();
+        // opcional: animar todo el contenedor principal
+        document.querySelector('.tema[data-tema="5"]').classList.add('ani-desbloqueo');
+        setTimeout(() => document.querySelector('.tema[data-tema="5"]').classList.remove('ani-desbloqueo'), 1200);
+      } else {
+        showNotification('Algunas respuestas son incorrectas. Observa las marcadas en rojo y vuelve a intentar.');
+      }
+    });
+  })();
+
+  // --- Inicializar estado en carga ---
+  actualizarTemas();
+  // Nota: Los initFunciones ya llaman actualizarTemas internamente al desbloquear.
+
 </script>
 
-</body>
-</html>
+
+  <div id="notification" role="alert" aria-live="assertive"></div>
