@@ -14,8 +14,8 @@
 
   body {
     font-family: 'Poppins', sans-serif;
-    background: #fff;
-    color: #0b3d91;
+    background: #002f4b; /* celeste oscuro */
+    color: #d4af37; /* dorado */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -30,20 +30,20 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     height: 60px;
-    background-color: #0b3d91;
+    background-color: #d4af37; /* dorado */
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 24px;
     z-index: 9999;
-    box-shadow: 0 3px 10px rgba(11,61,145,0.6);
+    box-shadow: 0 3px 10px rgba(212,175,55,0.6);
     animation: navSlideDown 0.8s ease forwards;
   }
 
   nav button {
     background: transparent;
-    border: 2.5px solid white;
-    color: white;
+    border: 2.5px solid #002f4b; /* celeste */
+    color: #002f4b; /* celeste */
     font-weight: 600;
     font-size: 1rem;
     padding: 8px 24px;
@@ -62,7 +62,7 @@
     height: 120%;
     top: -110%;
     left: -110%;
-    background: rgba(255 255 255 / 0.15);
+    background: rgba(0 47 75 / 0.15); /* celeste con transparencia */
     transform: rotate(45deg);
     transition: all 0.5s ease;
     z-index: 0;
@@ -76,16 +76,16 @@
 
   nav button:hover,
   nav button:focus-visible {
-    background-color: white;
-    color: #0b3d91;
-    box-shadow: 0 0 15px #ffffffcc;
+    background-color: #002f4b; /* celeste */
+    color: #d4af37; /* dorado */
+    box-shadow: 0 0 15px #002f4bcc;
     outline: none;
     z-index: 1;
   }
 
   nav button:focus-visible {
     outline-offset: 3px;
-    outline: 3px solid #ffffffcc;
+    outline: 3px solid #002f4bcc;
   }
 
   nav button:active {
@@ -107,10 +107,10 @@
     font-weight: 800;
     font-size: clamp(2.8rem, 5vw, 4.5rem);
     letter-spacing: 6px;
-    color: #0b3d91;
+    color: #d4af37; /* dorado */
     display: inline-block;
     padding-bottom: 10px;
-    border-bottom: 6px solid #0b3d91;
+    border-bottom: 6px solid #d4af37; /* dorado */
     animation: fadeInScale 1s ease forwards;
     position: relative;
   }
@@ -120,12 +120,12 @@
     position: absolute;
     width: 70px;
     height: 8px;
-    background: #084a8a;
+    background: #004e7a; /* celeste más brillante */
     bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 4px;
-    filter: drop-shadow(0 0 8px #084a8a);
+    filter: drop-shadow(0 0 8px #004e7a);
     animation: pulseGlow 3s infinite ease-in-out;
   }
 
@@ -133,7 +133,7 @@
     font-weight: 700;
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     margin: 30px 0 40px;
-    color: #084a8a;
+    color: #004e7a; /* celeste más brillante */
     text-transform: uppercase;
     letter-spacing: 3px;
     animation: fadeInUp 1.4s ease forwards;
@@ -145,26 +145,26 @@
     line-height: 1.8;
     max-width: 720px;
     margin: 0 auto;
-    background-color: #f0f5ff;
-    border: 3px solid #0b3d91;
+    background-color: #003a5c; /* celeste oscuro */
+    border: 3px solid #d4af37; /* dorado */
     border-radius: 18px;
     padding: 35px 45px;
-    color: #0b3d91;
+    color: #d4af37; /* dorado */
     user-select: text;
     cursor: default;
-    box-shadow: 0 10px 30px rgba(11, 61, 145, 0.18);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.18);
     transition: background-color 0.35s ease, border-color 0.35s ease;
     animation: fadeIn 1.7s ease forwards;
   }
 
   header p:hover,
   header p:focus {
-    background-color: #dbe7ff;
-    border-color: #084a8a;
+    background-color: #005d8e; /* celeste más brillante */
+    border-color: #004e7a; /* celeste más brillante */
     outline: none;
   }
 
-  /* Cursos Grid */
+    /* Cursos Grid */
   .cursos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -173,16 +173,16 @@
   }
 
   .curso-card {
-    background-color: #f9fbff;
-    border: 3px solid #0b3d91;
+    background-color: #003a5c; /* celeste oscuro */
+    border: 3px solid #d4af37; /* dorado */
     border-radius: 24px;
     padding: 32px 28px 42px;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow:
-      0 6px 20px rgba(11, 61, 145, 0.25),
-      inset 0 0 30px rgba(255 255 255, 0.7);
+      0 6px 20px rgba(212, 175, 55, 0.25),
+      inset 0 0 30px rgba(212 175 55 / 0.7);
     transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
     cursor: default;
     position: relative;
@@ -196,7 +196,7 @@
     left: -35%;
     width: 170%;
     height: 170%;
-    background: radial-gradient(circle at center, rgba(11,61,145,0.15), transparent 70%);
+    background: radial-gradient(circle at center, rgba(212,175,55,0.15), transparent 70%);
     opacity: 0;
     transition: opacity 0.55s ease;
     border-radius: 24px;
@@ -212,9 +212,9 @@
   .curso-card:focus-within {
     transform: translateY(-16px);
     box-shadow:
-      0 22px 50px rgba(11, 61, 145, 0.42),
-      inset 0 0 40px rgba(11, 61, 145, 0.22);
-    border-color: #084a8a;
+      0 22px 50px rgba(212, 175, 55, 0.42),
+      inset 0 0 40px rgba(212, 175, 55, 0.22);
+    border-color: #004e7a; /* celeste más brillante */
     outline: none;
     z-index: 2;
   }
@@ -226,21 +226,21 @@
     object-fit: cover;
     border-radius: 20px;
     margin-bottom: 32px;
-    border: 3px solid #0b3d91;
-    box-shadow: 0 12px 30px rgba(11, 61, 145, 0.3);
+    border: 3px solid #d4af37; /* dorado */
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.3);
     transition: box-shadow 0.4s ease;
     position: relative;
     z-index: 3;
   }
 
   .curso-card:hover img {
-    box-shadow: 0 18px 40px rgba(8, 74, 138, 0.6);
+    box-shadow: 0 18px 40px rgba(0, 78, 122, 0.6); /* celeste */
   }
 
   .curso-card h3 {
     font-size: 1.75rem;
     font-weight: 800;
-    color: #0b3d91;
+    color: #d4af37; /* dorado */
     margin-bottom: 36px;
     text-align: center;
     text-transform: uppercase;
@@ -251,8 +251,8 @@
   }
 
   .btn-adquirir {
-    background-color: #0b3d91;
-    color: #fff;
+    background-color: #d4af37; /* dorado */
+    color: #002f4b; /* celeste */
     font-weight: 700;
     border: none;
     padding: 18px 38px;
@@ -260,7 +260,7 @@
     font-size: 1.2rem;
     cursor: pointer;
     text-transform: uppercase;
-    box-shadow: 0 12px 38px rgba(11, 61, 145, 0.55);
+    box-shadow: 0 12px 38px rgba(212, 175, 55, 0.55);
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.35s ease;
     width: 100%;
     max-width: 280px;
@@ -277,7 +277,7 @@
   .btn-adquirir svg {
     width: 24px;
     height: 24px;
-    fill: #fff;
+    fill: #002f4b; /* celeste */
     transition: transform 0.35s ease;
   }
 
@@ -287,14 +287,14 @@
 
   .btn-adquirir:hover,
   .btn-adquirir:focus-visible {
-    background-color: #084a8a;
-    box-shadow: 0 18px 45px rgba(8, 74, 138, 0.85);
+    background-color: #004e7a; /* celeste más brillante */
+    box-shadow: 0 18px 45px rgba(0, 78, 122, 0.85);
     transform: scale(1.1);
     outline: none;
   }
 
   .btn-adquirir:focus-visible {
-    outline: 3px solid #084a8a;
+    outline: 3px solid #004e7a; /* celeste más brillante */
     outline-offset: 4px;
   }
 
@@ -314,7 +314,7 @@
     text-align: center;
     font-weight: 700;
     font-size: clamp(2rem, 4vw, 2.8rem);
-    color: #084a8a;
+    color: #004e7a; /* celeste más brillante */
     margin-bottom: 40px;
   }
   .concepto-item {
@@ -322,28 +322,28 @@
     gap: 30px;
     margin-bottom: 64px;
     align-items: center;
-    background: #f0f5ff;
-    border: 3px solid #0b3d91;
+    background: #003a5c; /* celeste oscuro */
+    border: 3px solid #d4af37; /* dorado */
     border-radius: 18px;
     padding: 24px 28px;
-    box-shadow: 0 8px 25px rgba(11, 61, 145, 0.1);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.1);
     transition: box-shadow 0.3s ease;
   }
   .concepto-item:hover {
-    box-shadow: 0 14px 45px rgba(8, 74, 138, 0.25);
+    box-shadow: 0 14px 45px rgba(0, 78, 122, 0.25);
   }
   .concepto-item img {
     width: 260px;
     height: 160px;
     object-fit: cover;
     border-radius: 14px;
-    border: 2px solid #0b3d91;
-    box-shadow: 0 4px 18px rgba(11, 61, 145, 0.3);
+    border: 2px solid #d4af37; /* dorado */
+    box-shadow: 0 4px 18px rgba(212, 175, 55, 0.3);
     user-select: none;
   }
   .concepto-texto {
     flex: 1;
-    color: #0b3d91;
+    color: #d4af37; /* dorado */
     font-size: clamp(1rem, 2vw, 1.15rem);
     line-height: 1.5;
     font-weight: 500;
@@ -368,12 +368,12 @@
     text-align: center;
     font-weight: 700;
     font-size: clamp(2rem, 4vw, 2.8rem);
-    color: #084a8a;
+    color: #004e7a; /* celeste más brillante */
     margin-bottom: 40px;
   }
   #beneficios ul {
     list-style-type: disc;
-    color: #0b3d91;
+    color: #d4af37; /* dorado */
     font-size: clamp(1.1rem, 2vw, 1.25rem);
     line-height: 1.7;
     padding-left: 1.6rem;
@@ -387,13 +387,13 @@
   footer {
     position: fixed;
     bottom: 0; left: 0; right: 0;
-    background-color: #0b3d91;
-    color: white;
+    background-color: #d4af37; /* dorado */
+    color: #002f4b; /* celeste */
     font-weight: 500;
     font-size: 1rem;
     text-align: center;
     padding: 14px 20px;
-    box-shadow: 0 -3px 10px rgba(11, 61, 145, 0.7);
+    box-shadow: 0 -3px 10px rgba(212, 175, 55, 0.7);
     user-select: none;
     z-index: 9999;
     display: flex;
@@ -403,7 +403,7 @@
   }
 
   footer span, footer a {
-    color: #d0dfff;
+    color: #003a5c; /* celeste oscuro */
     text-decoration: none;
     transition: color 0.3s ease;
     display: flex;
@@ -414,7 +414,7 @@
 
   footer a:hover,
   footer a:focus {
-    color: #ffffff;
+    color: #002f4b; /* celeste */
     outline: none;
   }
 
@@ -589,103 +589,53 @@
           </svg>
         </button>
       </article>
-
-      <article class="curso-card" tabindex="0" role="listitem" aria-labelledby="curso-canto">
-        <img src="canto.jpg" alt="Imagen representativa del curso de Canto" />
-        <h3 id="curso-canto">Curso de Canto</h3>
-        <button class="btn-adquirir" onclick="location.href='canto.html'" aria-label="Adquirir curso de Canto">
-          Adquiere el Curso ya
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M8 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </article>
     </div>
   </section>
 
-  <section id="conceptos" tabindex="0" aria-label="Conceptos de los cursos">
-    <h2>Conceptos</h2>
-
-    <article class="concepto-item" aria-labelledby="concepto-ingles-titulo">
-      <img src="ingles.jpg" alt="Curso de Inglés básico" />
+  <section id="conceptos" tabindex="0" aria-label="Conceptos importantes">
+    <h2>Conceptos Clave</h2>
+    <article class="concepto-item">
+      <img src="concepto1.jpg" alt="Concepto uno" />
       <div class="concepto-texto">
-        <strong id="concepto-ingles-titulo">Curso de Inglés</strong>
-        <p>Aprende el idioma universal con nuestro Curso de Inglés básico. Desde el abecedario, vocabulario esencial, frases de saludo y despedida, hasta estructuras gramaticales básicas para comunicarte en situaciones cotidianas.</p>
+        <strong>Aprendizaje</strong>
+        El proceso continuo de adquirir conocimientos y habilidades para el desarrollo personal y profesional.
       </div>
     </article>
-
-    <article class="concepto-item" aria-labelledby="concepto-computacion-titulo">
-      <img src="computacion.jpg" alt="Curso de Computación" />
+    <article class="concepto-item">
+      <img src="concepto2.jpg" alt="Concepto dos" />
       <div class="concepto-texto">
-        <strong id="concepto-computacion-titulo">Curso de Computación</strong>
-        <p>Desarrolla habilidades fundamentales en el manejo de computadoras, sistemas operativos, procesadores de texto y hojas de cálculo, para destacar en el mundo digital actual.</p>
+        <strong>Motivación</strong>
+        La fuerza interna que impulsa a alcanzar metas y superar obstáculos.
       </div>
     </article>
-
-    <article class="concepto-item" aria-labelledby="concepto-diseno-titulo">
-      <img src="diseno.jpg" alt="Curso de Diseño gráfico" />
+    <article class="concepto-item">
+      <img src="concepto3.jpg" alt="Concepto tres" />
       <div class="concepto-texto">
-        <strong id="concepto-diseno-titulo">Curso de Diseño gráfico</strong>
-        <p>Explora la creatividad y aprende a utilizar herramientas de diseño para crear imágenes, logos, y contenido visual impactante y profesional.</p>
-      </div>
-    </article>
-
-    <article class="concepto-item" aria-labelledby="concepto-edicion-titulo">
-      <img src="edicion.jpg" alt="Curso de Edición de videos" />
-      <div class="concepto-texto">
-        <strong id="concepto-edicion-titulo">Curso de Edición de videos</strong>
-        <p>Aprende a editar videos con técnicas profesionales, desde cortes básicos hasta efectos especiales, para crear contenido audiovisual de calidad.</p>
-      </div>
-    </article>
-
-    <article class="concepto-item" aria-labelledby="concepto-cocina-titulo">
-      <img src="cocina.jpg" alt="Curso de Cocina" />
-      <div class="concepto-texto">
-        <strong id="concepto-cocina-titulo">Curso de Cocina</strong>
-        <p>Domina recetas fáciles y deliciosas, técnicas culinarias básicas, y aprende a preparar platillos variados que sorprenderán a todos.</p>
-      </div>
-    </article>
-
-    <article class="concepto-item" aria-labelledby="concepto-baile-titulo">
-      <img src="baile.jpg" alt="Curso de Baile" />
-      <div class="concepto-texto">
-        <strong id="concepto-baile-titulo">Curso de Baile</strong>
-        <p>Disfruta y mejora tu coordinación con nuestros cursos de baile para principiantes, aprendiendo pasos básicos y ritmos populares.</p>
-      </div>
-    </article>
-
-    <article class="concepto-item" aria-labelledby="concepto-canto-titulo">
-      <img src="canto.jpg" alt="Curso de Canto" />
-      <div class="concepto-texto">
-        <strong id="concepto-canto-titulo">Curso de Canto</strong>
-        <p>Desarrolla tu voz y técnica vocal con ejercicios y teoría para cantar con confianza y expresión.</p>
+        <strong>Disciplina</strong>
+        La constancia y compromiso necesarios para lograr el éxito en cualquier área de la vida.
       </div>
     </article>
   </section>
 
-  <section id="beneficios" tabindex="0" aria-label="Beneficios de estudiar con EducaNIC">
+  <section id="beneficios" tabindex="0" aria-label="Beneficios de EducaNIC">
     <h2>Beneficios</h2>
     <ul>
-      <li>NOS ACOMODAMOS A TU HORARIO</li>
-      <li>SESIÓN PSICOLÓGICA GRATIS</li>
-      <li>DOCENTES CALIFICADOS</li>
-      <li>PEDAGOGÍA EXTRAORDINARIA</li>
-      <li>PROMOCIONES Y BECAS</li>
+      <li>Acceso a contenidos actualizados y de calidad.</li>
+      <li>Flexibilidad para aprender a tu propio ritmo.</li>
+      <li>Soporte y acompañamiento personalizado.</li>
+      <li>Material didáctico innovador y práctico.</li>
+      <li>Comunidad activa y colaborativa.</li>
     </ul>
   </section>
 </main>
 
-<footer role="contentinfo" aria-label="Información de contacto y derechos reservados">
-  <span>📞 
-    <a href="https://wa.me/50581294177" target="_blank" rel="noopener" aria-label="Enviar mensaje WhatsApp al número 8129-4177">8129-4177</a>
-  </span>
-  <span>✉️ 
-    <a href="mailto:jackarauz2008@gmail.com" aria-label="Enviar correo electrónico a jackarauz2008@gmail.com">jackarauz2008@gmail.com</a>
-  </span>
-  <span>© EducaNIC - 2025. Todos los derechos reservados.</span>
+<footer>
+  <span>&copy; 2025 EducaNIC</span>
+  <a href="mailto:contacto@educanic.com" aria-label="Enviar correo a contacto EducaNIC">contacto@educanic.com</a>
+  <a href="https://www.facebook.com/educanic" target="_blank" rel="noopener noreferrer" aria-label="Visitar Facebook de EducaNIC">Facebook</a>
+  <a href="https://www.instagram.com/educanic" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram de EducaNIC">Instagram</a>
 </footer>
 
 </body>
 </html>
-
 
